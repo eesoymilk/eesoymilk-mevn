@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import { RouterView } from "vue-router";
-import NavBar from "./components/NavBar.vue";
-</script>
-
 <template>
   <v-app>
     <NavBar />
@@ -12,3 +7,18 @@ import NavBar from "./components/NavBar.vue";
     <v-footer></v-footer>
   </v-app>
 </template>
+
+<script lang="ts" setup>
+import { onMounted } from "vue";
+import { RouterView } from "vue-router";
+import NavBar from "./components/NavBar.vue";
+import type { Auth0Plugin } from "./models/auth0-plugin";
+import { useAuth0 } from "./services/auth0-plugin";
+
+const auth0: Auth0Plugin | null = useAuth0();
+onMounted(async () => {
+  if (!auth0) return;
+  await auth0.createClient();
+  await auth0.handleCallback();
+});
+</script>

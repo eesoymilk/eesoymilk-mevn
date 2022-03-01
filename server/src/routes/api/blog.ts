@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
-import express, { Router } from "express";
+import { Router } from "express";
 import type { Request, Response } from "express";
 import Blog from "../../schema/blogSchema";
 
-const router: Router = express.Router();
+const router: Router = Router();
 
 // Get Blogs
 router.get("/", async (req: Request, res: Response) => {

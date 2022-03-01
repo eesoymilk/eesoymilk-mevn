@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import App from "./App.vue";
+import Shell from "./Shell.vue";
 import router from "./router";
 
 import "vuetify/styles";
@@ -9,7 +9,9 @@ import { aliases, mdi } from "vuetify/lib/iconsets/mdi";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 
-const app = createApp(App);
+// import { Auth0Plugin } from "./auth"
+
+const app = createApp(Shell);
 const vuetify = createVuetify({
   components,
   directives,
