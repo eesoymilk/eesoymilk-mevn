@@ -3,7 +3,7 @@ import express, { Router } from "express";
 import type { Request, Response } from "express";
 import Course from "../../schema/courseSchema";
 
-const router: Router = express.Router();
+const router: Router = Router();
 
 // Get Courses
 router.get("/", async (req: Request, res: Response) => {

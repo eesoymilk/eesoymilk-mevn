@@ -13,7 +13,8 @@ export enum AccessControlLevel {
 export const selectedAccessControlLevel = ref<AccessControlLevel | null>(null);
 // auth0 setup end
 
-const url = "http://localhost:5000/api/blog";
+const url = `${import.meta.env.VITE_VUE_APP_API_SERVER_URL}/api/blog`;
+// const url = "http://localhost:5000/api/blog";
 // const headers = {
 //   "Content-Type": "application/json",
 // };

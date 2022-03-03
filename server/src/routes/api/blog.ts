@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import { Router } from "express";
 import type { Request, Response } from "express";
+import { checkJwt } from "../../middleware/check-jwt.middleware";
 import Blog from "../../schema/blogSchema";
 
 const router: Router = Router();
@@ -26,7 +27,7 @@ router.delete("/:id", async (req: Request, res: Response) => {
 });
 
 // Add Blog
-router.post("/", async (req: Request, res: Response) => {
+router.post("/", checkJwt, async (req: Request, res: Response) => {
   console.log("adding new blog.");
   const newBlog = new Blog({ title: req.body.title, body: req.body.body, tags: req.body.tags });
   await newBlog.save();
