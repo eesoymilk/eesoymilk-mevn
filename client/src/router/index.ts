@@ -1,4 +1,8 @@
-import { createRouter, createWebHistory } from "vue-router";
+import {
+  createRouter,
+  createWebHistory,
+  type RouteRecordRaw,
+} from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import AboutView from "../views/AboutView.vue";
 import BlogView from "../views/BlogView.vue";
@@ -7,8 +11,8 @@ import CreateBlogView from "../views/CreateBlogView.vue";
 import CourseView from "../views/CourseView.vue";
 import AddCourseView from "../views/AddCourseView.vue";
 
-import Callback from "@/components/Callback.vue";
 import NotFoundView from "@/views/NotFoundView.vue";
+import { authenticationGuard } from "@/services/authentication-guard";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -37,6 +41,7 @@ const router = createRouter({
       path: "/blog/create",
       name: "CreateBlog",
       component: CreateBlogView,
+      beforeEnter: authenticationGuard,
     },
     {
       path: "/course",
@@ -47,18 +52,14 @@ const router = createRouter({
       path: "/course/add",
       name: "AddCourse",
       component: AddCourseView,
-    },
-    {
-      path: "/callback",
-      name: "callback",
-      component: Callback,
+      beforeEnter: authenticationGuard,
     },
     {
       path: "/:catchAll(.*)",
       name: "Not Found",
       component: NotFoundView,
     },
-  ],
+  ] as Array<RouteRecordRaw>,
 });
 
 export default router;

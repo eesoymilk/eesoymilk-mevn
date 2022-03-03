@@ -1,9 +1,22 @@
 import type Blog from "@/interfaces/blogInterface";
+import { ref } from "vue";
+
+// auth0 setup
+export enum AccessControlLevel {
+  PUBLIC = "public",
+  PROTECTED = "requires-authentication",
+  RBAC = "requires-role-permission",
+  CORS = "requires-cors-allowed-method",
+}
+
+// const apiServerUrl: string = process.env.VUE_APP_API_SERVER_URL;
+export const selectedAccessControlLevel = ref<AccessControlLevel | null>(null);
+// auth0 setup end
 
 const url = "http://localhost:5000/api/blog";
-const headers = {
-  "Content-Type": "application/json",
-};
+// const headers = {
+//   "Content-Type": "application/json",
+// };
 
 export default interface BlogValidation {
   isValid: boolean;
@@ -13,10 +26,19 @@ export default interface BlogValidation {
 }
 
 export default class BlogService {
-  // R: GET BLOG
+  // R: GET BLOG (PUBLIC)
   static async getBlogs() {
+    selectedAccessControlLevel.value = AccessControlLevel.PROTECTED;
+    const headers = {
+      "Content-Type": "application/json",
+    };
     try {
-      const blogs = await (await fetch(url)).json();
+      const blogs = await (
+        await fetch(url, {
+          method: "GET",
+          headers,
+        })
+      ).json();
       return blogs as Promise<Blog[]>;
     } catch (err: unknown) {
       if (err instanceof Error) console.log(err);
@@ -35,12 +57,19 @@ export default class BlogService {
   }
 
   // C: CREATE BLOG
-  static async createBlog(newBlog: Blog): Promise<BlogValidation> {
+  static async createBlog(
+    accessToken: string,
+    newBlog: Blog
+  ): Promise<BlogValidation> {
     let blogValidation: BlogValidation = {
       isValid: false,
       titleErrors: null,
       bodyErrors: null,
       tagsErrors: null,
+    };
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
     };
     try {
       console.log(newBlog);

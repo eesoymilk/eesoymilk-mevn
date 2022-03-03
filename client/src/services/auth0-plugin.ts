@@ -37,9 +37,9 @@ const createClient = async (): Promise<void> => {
 };
 
 const handleCallback = async (): Promise<void> => {
-  if (!auth0Client.value) {
-    return;
-  }
+  console.log("Handling Callback...");
+
+  if (!auth0Client.value) return;
 
   isAuthenticated.value = await auth0Client.value.isAuthenticated();
 
@@ -121,7 +121,8 @@ const logout = async (options?: LogoutOptions): Promise<void> => {
 const getAccessToken = async (
   options?: GetTokenSilentlyOptions
 ): Promise<null | string> => {
-  if (!auth0Client.value) return null;
+  if (!auth0Client.value || !user.value) return null;
+  console.log("Getting Token...");
   return (await auth0Client.value.getTokenSilently(options)) as string;
 };
 

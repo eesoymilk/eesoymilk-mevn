@@ -51,6 +51,9 @@ import BlogService from "@/services/blogService";
 import { reactive, ref, type Ref } from "vue";
 import { useRouter } from "vue-router";
 
+import type { Auth0Plugin } from "@/models/auth0-plugin";
+import { useAuth0 } from "@/services/auth0-plugin";
+
 const blog = reactive<Blog>({
   title: "",
   body: "",
@@ -86,9 +89,17 @@ const removeTag = (tag: string): void => {
   if (idx > -1) blog.tags.splice(idx, 1);
 };
 
+// Auth0 and submittion
 const router = useRouter();
+const auth0: Auth0Plugin | null = useAuth0();
+const getAccessToken = async (): Promise<null | string> => {
+  if (!auth0) return null;
+  return await auth0.getAccessToken();
+};
+
 const submitBlog = async () => {
-  blogValidation = await BlogService.createBlog(blog);
+  const token = await getAccessToken();
+  blogValidation = await BlogService.createBlog(token as string, blog);
   // console.table(blogValidation);
   if (blogValidation.isValid) router.push({ name: "Blog" });
 };
