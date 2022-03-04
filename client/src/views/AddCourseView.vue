@@ -82,7 +82,9 @@ const courseNumber = ref("") as Ref<string>;
 // });
 
 const course = reactive<Course>({
-  _id: "",
+  // _id: "",
+  semester: "",
+  courseNo: "",
   title: "",
   credits: 1,
   time: "",
@@ -93,14 +95,16 @@ const course = reactive<Course>({
 const router = useRouter();
 const submitCourse = async () => {
   console.log("submitting...");
-  course._id = schoolYear.value;
-  if (semester.value == "Fall") course._id += "10";
-  if (semester.value == "Spring") course._id += "20";
-  if (semester.value == "Summer") course._id += "30";
-  course._id += courseNumber.value;
-  // course._id = `${schoolYear.value}${semesters[semester.value]}${
-  //   courseNumber.value
-  // }`;
+  // course._id = schoolYear.value;
+  // if (semester.value == "Fall") course._id += "10";
+  // if (semester.value == "Spring") course._id += "20";
+  // if (semester.value == "Summer") course._id += "30";
+  // course._id += courseNumber.value;
+  course.semester = schoolYear.value;
+  if (semester.value == "Fall") course.semester += "10";
+  if (semester.value == "Spring") course.semester += "20";
+  if (semester.value == "Summer") course.semester += "30";
+  course.courseNo = courseNumber.value;
   await CourseService.createCourse(course);
   router.push({ name: "Course" });
 };

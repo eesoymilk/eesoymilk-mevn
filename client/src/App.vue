@@ -12,8 +12,8 @@
 import { onMounted } from "vue";
 import { RouterView } from "vue-router";
 import NavBar from "./components/NavBar.vue";
-import type { Auth0Plugin } from "./models/auth0-plugin";
-import { useAuth0 } from "./services/auth0-plugin";
+import type { Auth0Plugin } from "./models/auth0Plugin";
+import { useAuth0 } from "./services/auth0Plugin";
 
 const auth0: Auth0Plugin | null = useAuth0();
 onMounted(async () => {

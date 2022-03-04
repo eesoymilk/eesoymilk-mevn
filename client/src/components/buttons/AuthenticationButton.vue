@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useAuth0 } from "@/services/auth0-plugin";
+import { useAuth0 } from "@/services/auth0Plugin";
 import { computed, type ComputedRef } from "vue";
 
 const auth0 = useAuth0();

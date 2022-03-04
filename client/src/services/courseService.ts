@@ -1,6 +1,6 @@
 import type Course from "@/interfaces/courseInterface";
 
-const url = "http://localhost:5000/api/course";
+const url = `${import.meta.env.VITE_VUE_APP_API_SERVER_URL}/api/course`;
 const headers = {
   "Content-Type": "application/json",
 };

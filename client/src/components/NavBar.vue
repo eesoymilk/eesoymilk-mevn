@@ -17,7 +17,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import type { Ref } from "vue";
-import AuthenticationButton from "./buttons/authentication-button.vue";
+import AuthenticationButton from "./buttons/AuthenticationButton.vue";
 
 const navRouteNames: Ref<string[]> = ref<string[]>([
   "Home",

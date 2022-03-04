@@ -12,6 +12,13 @@ import { onMounted, ref, type Ref } from "vue";
 const courses = ref(null) as Ref<Course[] | null>;
 
 onMounted(async () => {
-  courses.value = await CourseService.getCourses();
+  const allCourses: Course[] | null = await CourseService.getCourses();
+  courses.value = allCourses;
+  // if (allCourses) {
+  //   allCourses.forEach((course) => {
+  //     const semester = course._id.slice(0, 5);
+  //     console.log(semester);
+  //   });
+  // }
 });
 </script>

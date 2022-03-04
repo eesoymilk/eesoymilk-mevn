@@ -2,12 +2,14 @@ import mongoose from "mongoose";
 import express, { Router } from "express";
 import type { Request, Response } from "express";
 import Course from "../../schema/courseSchema";
+import { accessSync } from "fs";
 
 const router: Router = Router();
 
 // Get Courses
 router.get("/", async (req: Request, res: Response) => {
-  res.send(await Course.find());
+  const allCourses = await Course.find().sort({ _id: "asc", time: "asc" });
+  res.send(allCourses);
 });
 
 router.get("/:id", async (req: Request, res: Response) => {

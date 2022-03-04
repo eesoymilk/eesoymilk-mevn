@@ -51,8 +51,8 @@ import BlogService from "@/services/blogService";
 import { reactive, ref, type Ref } from "vue";
 import { useRouter } from "vue-router";
 
-import type { Auth0Plugin } from "@/models/auth0-plugin";
-import { useAuth0 } from "@/services/auth0-plugin";
+import type { Auth0Plugin } from "@/models/auth0Plugin";
+import { useAuth0 } from "@/services/auth0Plugin";
 
 const blog = reactive<Blog>({
   title: "",

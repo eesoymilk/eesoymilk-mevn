@@ -1,5 +1,7 @@
 export default interface Course {
-  _id: string;
+  _id?: string;
+  semester: string;
+  courseNo: string;
   title: string;
   credits: number;
   time: string;

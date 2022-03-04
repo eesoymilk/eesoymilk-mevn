@@ -1,4 +1,4 @@
-import { isAuthenticated, isLoading, login } from "@/services/auth0-plugin";
+import { isAuthenticated, isLoading, login } from "@/services/auth0Plugin";
 import { watch } from "vue";
 import type { NavigationGuardNext, RouteLocationNormalized } from "vue-router";
 

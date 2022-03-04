@@ -1,7 +1,9 @@
 import mongoose, { Schema } from "mongoose";
 
 interface CourseInterface {
-  _id: string,
+  // _id: string,
+  semester: number, // eg, 11001
+  courseNo: string, // eg, EECS200101
   title: string,
   credits: number,
   time: string,
@@ -15,7 +17,9 @@ interface CourseInterface {
 
 const courseSchema = new Schema<CourseInterface>(
   {
-    _id: { type: String, required: true },
+    // _id: { type: String, required: true },
+    semester: { type: Number, required: true },
+    courseNo: { type: String, required: true },
     title: { type: String, required: true },
     credits: { type: Number, required: true },
     time: { type: String, required: true },
@@ -26,7 +30,9 @@ const courseSchema = new Schema<CourseInterface>(
     rank: { type: Number, required: false },
     totalEnrollment: { type: Number, required: false },
   },
-  { _id: false },
+  // { _id: false },
 );
+
+courseSchema.index({semester: 1, courseNo: -1}, { unique: true })
 
 export default mongoose.model("Course", courseSchema);

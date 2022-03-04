@@ -6,13 +6,13 @@ import {
 import HomeView from "../views/HomeView.vue";
 import AboutView from "../views/AboutView.vue";
 import BlogView from "../views/BlogView.vue";
-import BlogDetailsView from "../views/BlogDetailsView.vue";
+import BlogDetailsView from "@/views/BlogDetailsView.vue";
 import CreateBlogView from "../views/CreateBlogView.vue";
 import CourseView from "../views/CourseView.vue";
 import AddCourseView from "../views/AddCourseView.vue";
 
 import NotFoundView from "@/views/NotFoundView.vue";
-import { authenticationGuard } from "@/services/authentication-guard";
+import { authenticationGuard } from "@/services/authenticationGuard";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

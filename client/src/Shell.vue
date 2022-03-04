@@ -4,6 +4,6 @@
 
 <script lang="ts" setup>
 import App from "./App.vue";
-import { provideAuth0 } from "./services/auth0-plugin";
+import { provideAuth0 } from "./services/auth0Plugin";
 provideAuth0();
 </script>

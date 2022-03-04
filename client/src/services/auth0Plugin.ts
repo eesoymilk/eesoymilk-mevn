@@ -1,4 +1,4 @@
-import type { Auth0Plugin } from "@/models/auth0-plugin";
+import type { Auth0Plugin } from "@/models/auth0Plugin";
 import createAuth0Client from "@auth0/auth0-spa-js";
 import type { Auth0Client } from "@auth0/auth0-spa-js";
 import type {
