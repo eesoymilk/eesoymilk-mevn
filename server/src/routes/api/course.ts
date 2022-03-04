@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
 import express, { Router } from "express";
 import type { Request, Response } from "express";
-import Course from "../../schema/courseSchema";
-import { accessSync } from "fs";
+import Course from "../../models/course";
 
 const router: Router = Router();
 

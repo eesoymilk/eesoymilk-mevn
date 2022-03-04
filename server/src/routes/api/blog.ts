@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { Router } from "express";
 import type { Request, Response } from "express";
 import { checkJwt } from "../../middleware/check-jwt.middleware";
-import Blog from "../../schema/blogSchema";
+import Blog from "../../models/blog";
 
 const router: Router = Router();
 

@@ -11,8 +11,8 @@
       <v-select
         dense
         :items="['Fall', 'Spring', 'Summer']"
-        label="Semester"
-        v-model="semester"
+        label="Season"
+        v-model="season"
       >
       </v-select>
       <v-text-field label="Course Number" v-model="courseNumber"></v-text-field>
@@ -57,14 +57,14 @@
 </template>
 
 <script lang="ts" setup>
-import type Course from "@/interfaces/courseInterface";
+import type Course from "@/models/course";
 // import type CourseValidation from "@/services/courseService";
 import CourseService from "@/services/courseService";
 import { reactive, ref, type Ref } from "vue";
 import { useRouter } from "vue-router";
 
 const schoolYear = ref("") as Ref<string>;
-const semester = ref("") as Ref<string>;
+const season = ref("") as Ref<string>;
 const courseNumber = ref("") as Ref<string>;
 // const semesters = Object.freeze({ Fall: "10", Spring: "20", Summer: "30" });
 // const gapLevels = Object.freeze({
@@ -84,7 +84,7 @@ const courseNumber = ref("") as Ref<string>;
 const course = reactive<Course>({
   // _id: "",
   semester: "",
-  courseNo: "",
+  courseNumber: "",
   title: "",
   credits: 1,
   time: "",
@@ -95,16 +95,10 @@ const course = reactive<Course>({
 const router = useRouter();
 const submitCourse = async () => {
   console.log("submitting...");
-  // course._id = schoolYear.value;
-  // if (semester.value == "Fall") course._id += "10";
-  // if (semester.value == "Spring") course._id += "20";
-  // if (semester.value == "Summer") course._id += "30";
-  // course._id += courseNumber.value;
   course.semester = schoolYear.value;
-  if (semester.value == "Fall") course.semester += "10";
-  if (semester.value == "Spring") course.semester += "20";
-  if (semester.value == "Summer") course.semester += "30";
-  course.courseNo = courseNumber.value;
+  if (season.value == "Fall") course.semester += "10";
+  else if (season.value == "Spring") course.semester += "20";
+  else if (season.value == "Summer") course.semester += "30";
   await CourseService.createCourse(course);
   router.push({ name: "Course" });
 };

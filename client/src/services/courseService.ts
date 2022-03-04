@@ -1,4 +1,4 @@
-import type Course from "@/interfaces/courseInterface";
+import type Course from "@/models/course";
 
 const url = `${import.meta.env.VITE_VUE_APP_API_SERVER_URL}/api/course`;
 const headers = {

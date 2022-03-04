@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-interface CourseInterface {
+interface Course {
   // _id: string,
   semester: number, // eg, 11001
   courseNo: string, // eg, EECS200101
@@ -15,7 +15,7 @@ interface CourseInterface {
   totalEnrollment: number,
 }
 
-const courseSchema = new Schema<CourseInterface>(
+const courseSchema = new Schema<Course>(
   {
     // _id: { type: String, required: true },
     semester: { type: Number, required: true },

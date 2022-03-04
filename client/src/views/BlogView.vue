@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-navigation-drawer permanent position="right">
-      nav drawer
+      {{ foo }}
     </v-navigation-drawer>
     <v-container>
       <v-row>
@@ -21,13 +21,22 @@
 </template>
 
 <script lang="ts" setup>
-import type Blog from "@/interfaces/blogInterface";
+import type Blog from "@/models/blog";
 import BlogService from "@/services/blogService";
-import { onMounted, ref, type Ref } from "vue";
+import { ref, type Ref } from "vue";
 
-const blogs = ref(null) as Ref<Blog[] | null>;
+const getDummyData = async () => {
+  await sleep(3000);
+  return "hello";
+};
 
-onMounted(async () => {
-  blogs.value = await BlogService.getBlogs();
-});
+function sleep(ms: number) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
+const foo = await getDummyData();
+
+const blogs = ref(await BlogService.getBlogs()) as Ref<Blog[] | null>;
 </script>

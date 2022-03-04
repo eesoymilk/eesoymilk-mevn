@@ -1,6 +1,6 @@
 import mongoose, { Schema, Types } from "mongoose";
 
-interface BlogInterface {
+interface Blog {
   title: string,
   body: string,
   tags: string[],
@@ -9,7 +9,7 @@ interface BlogInterface {
   updatedAt: Date
 }
 
-const blogSchema = new Schema<BlogInterface>(
+const blogSchema = new Schema<Blog>(
   {
     title: { type: String, required: true },
     body: { type: String, required: true },

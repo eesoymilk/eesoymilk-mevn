@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-import type Blog from "@/interfaces/blogInterface";
+import type Blog from "@/models/blog";
 import BlogService from "@/services/blogService";
 import { onMounted, ref, type Ref } from "vue";
 import { useRoute } from "vue-router";

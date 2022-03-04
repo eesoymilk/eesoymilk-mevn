@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import type Course from "@/interfaces/courseInterface";
+import type Course from "@/models/course";
 import CourseService from "@/services/courseService";
 import { onMounted, ref, type Ref } from "vue";
 

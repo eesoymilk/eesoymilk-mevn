@@ -1,4 +1,4 @@
-import type Blog from "@/interfaces/blogInterface";
+import type Blog from "@/models/blog";
 import { ref } from "vue";
 
 // auth0 setup

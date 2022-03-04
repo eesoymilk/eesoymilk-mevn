@@ -45,7 +45,7 @@
 </template>
 
 <script lang="ts" setup>
-import type Blog from "@/interfaces/blogInterface";
+import type Blog from "@/models/blog";
 import type BlogValidation from "@/services/blogService";
 import BlogService from "@/services/blogService";
 import { reactive, ref, type Ref } from "vue";

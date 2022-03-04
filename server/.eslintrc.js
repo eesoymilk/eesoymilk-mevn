@@ -1,36 +1,28 @@
+/* eslint-env node */
+require("@rushstack/eslint-patch/modern-module-resolution");
+
 module.exports = {
-	"env": {
-		"es2021": true,
-		"node": true
-	},
-	"extends": [
-		"eslint:recommended",
-		"plugin:@typescript-eslint/recommended"
-	],
-	"parser": "@typescript-eslint/parser",
-	"parserOptions": {
+  root: true,
+  extends: [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:typescript/recommended",
+    "plugin:@typescript-eslint/recommended",
+		"plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
+	parser: "@typescript-eslint/parser",
+	parserOptions: {
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-	"plugins": [
+  env: {
+    "es2021": true,
+		"node": true
+  },
+  plugins: [
 		"@typescript-eslint"
 	],
-	"rules": {
-		"indent": [
-			"error",
-			"tab"
-		],
-		"linebreak-style": [
-			"error",
-			"windows"
-		],
-		"quotes": [
-			"error",
-			"double"
-		],
-		"semi": [
-			"error",
-			"always"
-		]
-	}
+  rules: {
+    "prettier/prettier": ["error", { endOfLine: "auto" }],
+  },
 };
