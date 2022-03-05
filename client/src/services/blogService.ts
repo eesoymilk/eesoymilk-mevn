@@ -29,13 +29,14 @@ export default interface BlogValidation {
 export default class BlogService {
   // R: GET BLOG (PUBLIC)
   static async getBlogs() {
-    selectedAccessControlLevel.value = AccessControlLevel.PROTECTED;
+    selectedAccessControlLevel.value = AccessControlLevel.PUBLIC;
     const headers = {
       "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "https://eesoymilk-mevn.df.r.appspot.com",
     };
     try {
       const blogs = await (
-        await fetch(url, {
+        await fetch("https://eesoymilk-mevn.df.r.appspot.com/api/blog", {
           method: "GET",
           headers,
         })

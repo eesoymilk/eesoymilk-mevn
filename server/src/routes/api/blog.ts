@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { Router } from "express";
 import type { Request, Response } from "express";
-import { checkJwt } from "../../middleware/check-jwt.middleware";
+import { checkJwt, guard } from "../../middleware/check-jwt.middleware";
 import Blog from "../../models/blog";
 
 const router: Router = Router();
@@ -19,7 +19,7 @@ router.get("/:id", async (req: Request, res: Response) => {
 });
 
 // Delete Blog
-router.delete("/:id", async (req: Request, res: Response) => {
+router.delete("/:id", checkJwt, guard.check(["write:blogs"]), async (req: Request, res: Response) => {
   const _id = new mongoose.Types.ObjectId(req.params.id)
   const deleted_res = await Blog.remove({ _id });
   console.log(`${deleted_res.deletedCount} post(s) deleted.`);
@@ -27,7 +27,7 @@ router.delete("/:id", async (req: Request, res: Response) => {
 });
 
 // Add Blog
-router.post("/", checkJwt, async (req: Request, res: Response) => {
+router.post("/", checkJwt, guard.check("write:blogs"), async (req: Request, res: Response) => {
   console.log("adding new blog.");
   const newBlog = new Blog({ title: req.body.title, body: req.body.body, tags: req.body.tags });
   await newBlog.save();

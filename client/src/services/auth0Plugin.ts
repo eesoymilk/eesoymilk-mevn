@@ -14,8 +14,9 @@ const domain = import.meta.env.VITE_VUE_APP_AUTH0_DOMAIN;
 const clientId = import.meta.env.VITE_VUE_APP_AUTH0_CLIENT_ID;
 const audience = import.meta.env.VITE_VUE_APP_AUTH0_AUDIENCE;
 const callbackUrl = import.meta.env.VITE_VUE_APP_AUTH0_CALLBACK_URL;
+const serverUrl = import.meta.env.VITE_VUE_APP_API_SERVER_URL;
 
-console.table({ domain, clientId, audience, callbackUrl });
+console.table({ domain, clientId, audience, callbackUrl, serverUrl });
 
 const auth0Client = ref<Auth0Client | null>(null);
 export const isAuthenticated = ref(false);

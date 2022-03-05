@@ -25,6 +25,7 @@ if (!(process.env.PORT && process.env.CLIENT_ORIGIN_URL)) {
 const PORT: number = parseInt(process.env.PORT as string, 10);
 const CLIENT_ORIGIN_URL = process.env.CLIENT_ORIGIN_URL;
 // // auth0 end
+console.log(PORT, CLIENT_ORIGIN_URL);
 
 const app: Application = express();
 // // auth0
@@ -62,10 +63,13 @@ app.use(
   cors({
     origin: CLIENT_ORIGIN_URL,
     methods: ["GET"],
-    allowedHeaders: ["Authorization", "Content-Type"],
+    allowedHeaders: ["Authorization", "Content-Type", "Access-Control-Allow-Origin"],
     maxAge: 86400,
   })
 );
+app.use("/test", (req, res) => {
+  res.send("TESTING ROUTING.");
+})
 app.use("/api/blog", blog);
 app.use("/api/course", course);
 

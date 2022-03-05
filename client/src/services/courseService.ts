@@ -14,9 +14,17 @@ const headers = {
 
 export default class CourseService {
   // R: GET COURSE
-  static async getCourses() {
+  static async getCourses(accessToken: string) {
     try {
-      const courses = await (await fetch(url)).json();
+      const headers = {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      };
+      const res = await fetch(url, {
+        method: "GET",
+        headers,
+      });
+      const courses = await res.json();
       return courses as Promise<Course[]>;
     } catch (err: unknown) {
       if (err instanceof Error) console.log(err);

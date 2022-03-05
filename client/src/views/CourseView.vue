@@ -8,11 +8,18 @@
 import type Course from "@/models/course";
 import CourseService from "@/services/courseService";
 import { onMounted, ref, type Ref } from "vue";
+import { useAuth0 } from "@/services/auth0Plugin";
+
+const auth0 = useAuth0();
 
 const courses = ref(null) as Ref<Course[] | null>;
 
 onMounted(async () => {
-  const allCourses: Course[] | null = await CourseService.getCourses();
+  const accessToken = await auth0?.getAccessToken();
+  console.log("Token:", accessToken);
+  const allCourses: Course[] | null = await CourseService.getCourses(
+    accessToken as string
+  );
   courses.value = allCourses;
   // if (allCourses) {
   //   allCourses.forEach((course) => {
