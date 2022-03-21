@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@octokit/types": "^6.34.0",
+    "css-loader": "^6.7.1",
     "@rushstack/eslint-patch": "^1.1.0",
     "@types/auth0": "^2.34.13",
     "@types/mongoose": "^5.11.97",

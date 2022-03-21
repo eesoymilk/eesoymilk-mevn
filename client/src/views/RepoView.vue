@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card v-if="repo">
+    <v-card v-if="repo" :href="repo.html_url" target="_blank">
       <v-card-title>{{ repo.full_name }}</v-card-title>
       <v-card-text>{{ repo.description }}</v-card-text>
       <v-card-text>Stargazers Count: {{ repo.stargazers_count }}</v-card-text>

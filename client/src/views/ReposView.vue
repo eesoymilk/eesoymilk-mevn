@@ -54,8 +54,10 @@ const route = useRoute();
 const userNotFound = ref(false) as Ref<boolean>;
 const page = ref(1) as Ref<number>;
 const endOfRepos = ref(false) as Ref<boolean>;
+const isLoadingRepos = ref(false) as Ref<boolean>;
 
 const loadRepos = async () => {
+  isLoadingRepos.value = true;
   const loadedRepos = await ReposService.getRepos(
     route.params.username as string,
     page.value
@@ -76,17 +78,18 @@ const loadRepos = async () => {
     });
     page.value++;
   }
+  isLoadingRepos.value = false;
 };
 
 const MoreRepos = () => {
-  if (endOfRepos.value === true || userNotFound.value === true) return;
+  if (endOfRepos.value || userNotFound.value || isLoadingRepos.value) return;
+  console.log("Let's get more repos!!!");
   loadRepos();
 };
 
-const handleScroll = (e: Event) => {
-  console.log(e);
-
-  if (e.target?.scrollTop + e.target?.clientHeight >= e.target?.scrollHeight) {
+const handleScroll = () => {
+  if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+    console.log("You are at the bottom of the page");
     MoreRepos();
   }
 };

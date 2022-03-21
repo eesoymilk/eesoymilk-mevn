@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development npx nodemon ./src/index.ts",
     "build": "tsc",
-    "start": "node ./dist/index.js",
+    "start": "cross-env NODE_ENV=production node ./dist/index.js",
     "gcp-build": "tsc -p ."
   },
   "license": "MIT",
@@ -25,6 +25,7 @@
     "jwks-rsa": "^2.0.5",
     "mongoose": "^6.2.3",
     "nocache": "^3.0.1",
+    "shortid": "^2.2.16",
     "undici": "^4.14.1"
   },
   "devDependencies": {
@@ -32,6 +33,7 @@
     "@types/express": "^4.17.13",
     "@types/mongoose": "^5.11.97",
     "@types/node": "^16.11.25",
+    "@types/shortid": "^0.0.29",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.5.0",
