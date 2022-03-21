@@ -6,7 +6,7 @@ import blog from "./routes/api/blog";
 import course from "./routes/api/course";
 import mongoose from "mongoose";
 
-// // auth0
+// auth0
 import * as dotenv from "dotenv";
 import helmet from "helmet";
 import nocache from "nocache";
@@ -14,7 +14,28 @@ import { messagesRouter } from "./messages/messages.router";
 import { errorHandler } from "./middleware/error.middleware";
 import { notFoundHandler } from "./middleware/not-found.middleware";
 
+import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
+
 dotenv.config();
+
+// const secretClient = new SecretManagerServiceClient();
+
+// async function accessSecretVersion() {
+//   const [version] = await secretClient.accessSecretVersion({
+//     name: "mongoose-username",
+//   });
+
+//   // Extract the payload as a string.
+//   const payload = version.payload?.data?.toString();
+
+//   // WARNING: Do not print the secret in a production environment - this
+//   // snippet is showing how to access the secret material.
+//   console.info(`Payload: ${payload}`);
+// }
+
+// accessSecretVersion();
+
+const app: Application = express();
 
 if (!(process.env.PORT && process.env.CLIENT_ORIGIN_URL)) {
 	throw new Error(
@@ -23,11 +44,10 @@ if (!(process.env.PORT && process.env.CLIENT_ORIGIN_URL)) {
 }
   
 const PORT: number = parseInt(process.env.PORT as string, 10);
-const CLIENT_ORIGIN_URL = process.env.CLIENT_ORIGIN_URL;
+const CLIENT_ORIGIN_URL = app.get('env') === "development" ? "http://localhost:4040" : process.env.CLIENT_ORIGIN_URL;
 // // auth0 end
-console.log(PORT, CLIENT_ORIGIN_URL);
+console.log(PORT, CLIENT_ORIGIN_URL, app.get('env'));
 
-const app: Application = express();
 // // auth0
 // const apiRouter = express.Router();
 

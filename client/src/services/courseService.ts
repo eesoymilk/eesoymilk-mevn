@@ -16,14 +16,8 @@ export default class CourseService {
   // R: GET COURSE
   static async getCourses(accessToken: string) {
     try {
-      const headers = {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
-      };
-      const res = await fetch(url, {
-        method: "GET",
-        headers,
-      });
+      const headers = { Authorization: `Bearer ${accessToken}` };
+      const res = await fetch(url, { method: "GET", headers });
       const courses = await res.json();
       return courses as Promise<Course[]>;
     } catch (err: unknown) {

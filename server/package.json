@@ -4,16 +4,18 @@
   "description": "eesoymilk-mevn backend",
   "main": "./dist/index.js",
   "scripts": {
-    "dev": "npx nodemon ./src/index.ts",
+    "dev": "cross-env NODE_ENV=development npx nodemon ./src/index.ts",
     "build": "tsc",
     "start": "node ./dist/index.js",
     "gcp-build": "tsc -p ."
   },
   "license": "MIT",
   "dependencies": {
+    "@google-cloud/secret-manager": "^3.11.0",
     "@types/express-jwt": "^6.0.4",
     "body-parser": "^1.19.2",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.0.0",
     "eslint-config-typescript": "^3.0.0",
     "express": "^4.17.3",

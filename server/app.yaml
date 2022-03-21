@@ -1,1 +1,4 @@
 runtime: nodejs16 # or another supported version
+service: secrets
+
+env_variables:

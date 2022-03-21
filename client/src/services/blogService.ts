@@ -14,10 +14,7 @@ export const selectedAccessControlLevel = ref<AccessControlLevel | null>(null);
 // auth0 setup end
 
 const url = `${import.meta.env.VITE_VUE_APP_API_SERVER_URL}/api/blog`;
-// const url = "http://localhost:5000/api/blog";
-// const headers = {
-//   "Content-Type": "application/json",
-// };
+// const url = "/api/blog";
 
 export default interface BlogValidation {
   isValid: boolean;
@@ -30,17 +27,11 @@ export default class BlogService {
   // R: GET BLOG (PUBLIC)
   static async getBlogs() {
     selectedAccessControlLevel.value = AccessControlLevel.PUBLIC;
-    const headers = {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "https://eesoymilk-mevn.df.r.appspot.com",
-    };
+    // const headers = {
+    //   "Content-Type": "application/json",
+    // };
     try {
-      const blogs = await (
-        await fetch("https://eesoymilk-mevn.df.r.appspot.com/api/blog", {
-          method: "GET",
-          headers,
-        })
-      ).json();
+      const blogs = await (await fetch(url)).json();
       return blogs as Promise<Blog[]>;
     } catch (err: unknown) {
       if (err instanceof Error) console.log(err);

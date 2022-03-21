@@ -26,5 +26,6 @@ const navRouteNames: Ref<string[]> = ref<string[]>([
   "CreateBlog",
   "Course",
   "AddCourse",
+  "Dcard",
 ]);
 </script>

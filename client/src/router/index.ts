@@ -10,6 +10,9 @@ import BlogDetailsView from "@/views/BlogDetailsView.vue";
 import CreateBlogView from "../views/CreateBlogView.vue";
 import CourseView from "../views/CourseView.vue";
 import AddCourseView from "../views/AddCourseView.vue";
+import DcardView from "@/views/DcardView.vue";
+import ReposView from "@/views/ReposView.vue";
+import RepoView from "@/views/RepoView.vue";
 
 import NotFoundView from "@/views/NotFoundView.vue";
 import { authenticationGuard } from "@/services/authenticationGuard";
@@ -54,6 +57,25 @@ const router = createRouter({
       component: AddCourseView,
       beforeEnter: authenticationGuard,
     },
+    {
+      path: "/dcard",
+      name: "Dcard",
+      component: DcardView,
+    },
+    {
+      path: "/dcard/users/:username/repos",
+      name: "Repos",
+      component: ReposView,
+    },
+    {
+      path: "/dcard/users/:username/repos/:repo",
+      name: "Repo",
+      component: RepoView,
+    },
+    // {
+    //   path: "/dcard/backend",
+    //   name: "DcardBackend",
+    // },
     {
       path: "/:catchAll(.*)",
       name: "Not Found",
