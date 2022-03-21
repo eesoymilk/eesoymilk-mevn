@@ -1,9 +1,9 @@
 <template>
   <v-app-bar>
-    <v-app-bar-title>
+    <v-toolbar-title>
       <span class="font-weight-light">ee</span>
       <span>Soymilk</span>
-    </v-app-bar-title>
+    </v-toolbar-title>
     <v-spacer></v-spacer>
     <v-btn v-for="name in navRouteNames" :key="name" :to="{ name }">
       {{ name }}
