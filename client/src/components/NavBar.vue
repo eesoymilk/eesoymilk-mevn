@@ -6,8 +6,8 @@
     </v-toolbar-title>
     <v-spacer></v-spacer>
     <v-btn :to="{ name: 'Blog' }">Blog</v-btn>
-    <v-btn :to="{ name: 'Course' }">Course</v-btn>
-    <!-- <v-btn :to="{ name: 'Portfolio' }">Portfolio</v-btn> -->
+    <!-- <v-btn :to="{ name: 'Course' }">Course</v-btn> -->
+    <v-btn :to="{ name: 'Portfolio' }">Portfolio</v-btn>
     <v-menu offset-y>
       <template v-slot:activator="{ props }">
         <v-btn color="primary" dark v-bind="props"> Dcard </v-btn>
