@@ -27,8 +27,7 @@ export default class ShortUrlService {
         headers,
         body: JSON.stringify(newShortUrl),
       });
-      const json = await res.json();
-      console.log(json);
+      console.log(res);
     } catch (err: unknown) {
       if (err instanceof Error) console.log(err.message);
     }
@@ -42,8 +41,7 @@ export default class ShortUrlService {
         headers,
         body: JSON.stringify({ id }),
       });
-      const json = await res.json();
-      console.log(json);
+      console.log(res);
     } catch (err: unknown) {
       if (err instanceof Error) console.log(err);
       return null;

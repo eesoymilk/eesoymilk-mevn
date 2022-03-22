@@ -3,14 +3,24 @@ import {
   createWebHistory,
   type RouteRecordRaw,
 } from "vue-router";
+
 import HomeView from "../views/HomeView.vue";
-import AboutView from "../views/AboutView.vue";
 import BlogView from "../views/BlogView.vue";
 import BlogDetailsView from "@/views/BlogDetailsView.vue";
 import CreateBlogView from "../views/CreateBlogView.vue";
 import CourseView from "../views/CourseView.vue";
 import AddCourseView from "../views/AddCourseView.vue";
-import DcardView from "@/views/DcardView.vue";
+
+import PortfolioView from "@/views/PortfolioView.vue";
+import PortfolioOverview from "@/components/portfolio/PortfolioOverview.vue";
+import eeSoymilk from "@/components/portfolio/eeSoymilk.vue";
+import JsCourse from "@/components/portfolio/JsCourse.vue";
+import CyberPunk2069 from "@/components/portfolio/CyberPunk2069.vue";
+import GameOfBalance from "@/components/portfolio/GameOfBalance.vue";
+import FlappyBird from "@/components/portfolio/FlappyBird.vue";
+
+import DcardFrontendView from "@/views/DcardFrontendView.vue";
+import DcardBackendView from "@/views/DcardBackendView.vue";
 import ReposView from "@/views/ReposView.vue";
 import RepoView from "@/views/RepoView.vue";
 
@@ -24,11 +34,6 @@ const router = createRouter({
       path: "/",
       name: "Home",
       component: HomeView,
-    },
-    {
-      path: "/about",
-      name: "About",
-      component: AboutView,
     },
     {
       path: "/blog",
@@ -58,24 +63,67 @@ const router = createRouter({
       beforeEnter: authenticationGuard,
     },
     {
-      path: "/dcard",
-      name: "Dcard",
-      component: DcardView,
+      path: "/portfolio",
+      name: "Portfolio",
+      component: PortfolioView,
+      redirect: () => "/portfolio/overview",
+      children: [
+        {
+          path: "overview",
+          component: PortfolioOverview,
+          props: true,
+        },
+        {
+          path: "ee-soymilk",
+          name: "eeSoymilk",
+          component: eeSoymilk,
+        },
+        {
+          path: "jscourse",
+          name: "JsCourse",
+          component: JsCourse,
+        },
+        {
+          path: "cyber-punk-2069",
+          name: "CyberPunk2069",
+          component: CyberPunk2069,
+        },
+        {
+          path: "game-of-balance",
+          name: "GameOfBalance",
+          component: GameOfBalance,
+        },
+        {
+          path: "flappy-bird",
+          name: "FlappyBird",
+          component: FlappyBird,
+        },
+      ],
     },
     {
-      path: "/dcard/users/:username/repos",
+      path: "/dcard",
+      redirect: () => "/dcard/frontend",
+    },
+    {
+      path: "/dcard/frontend",
+      name: "DcardFrontend",
+      component: DcardFrontendView,
+    },
+    {
+      path: "/dcard/frontend/users/:username/repos",
       name: "Repos",
       component: ReposView,
     },
     {
-      path: "/dcard/users/:username/repos/:repo",
+      path: "/dcard/frontend/users/:username/repos/:repo",
       name: "Repo",
       component: RepoView,
     },
-    // {
-    //   path: "/dcard/backend",
-    //   name: "DcardBackend",
-    // },
+    {
+      path: "/dcard/backend",
+      name: "DcardBackend",
+      component: DcardBackendView,
+    },
     {
       path: "/:catchAll(.*)",
       name: "Not Found",

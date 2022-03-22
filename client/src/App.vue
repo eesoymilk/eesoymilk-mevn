@@ -2,9 +2,9 @@
   <v-app>
     <NavBar />
     <v-main>
-      <v-card v-if="user" color="light-green" class="ma-5">
+      <!-- <v-card v-if="user" color="light-green" class="ma-5">
         <v-card-title> Logged in as {{ user.nickname }} </v-card-title>
-      </v-card>
+      </v-card> -->
       <suspense>
         <RouterView />
         <template #fallback>
