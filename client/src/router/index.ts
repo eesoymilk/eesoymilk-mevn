@@ -70,6 +70,7 @@ const router = createRouter({
       children: [
         {
           path: "overview",
+          name: "PortfolioOverview",
           component: PortfolioOverview,
           props: true,
         },

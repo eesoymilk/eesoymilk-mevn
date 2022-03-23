@@ -13,10 +13,13 @@
           }"
         >
           <v-card-title>Name: {{ repo.name }}</v-card-title>
-          <v-card-text
-            >Stargazers Count: {{ repo.stargazers_count }}</v-card-text
-          >
-          <v-card-text
+          <v-card-text>
+            Stargazers Count: {{ repo.stargazers_count }}
+          </v-card-text>
+          <v-card-text v-if="repo.description">
+            Description: {{ repo.description }}
+          </v-card-text>
+          <v-card-text v-else
             >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem
             quo cum asperiores debitis, molestiae reprehenderit repudiandae eius
             quis nisi pariatur neque illum velit ullam magnam esse, maiores,
@@ -24,7 +27,6 @@
           >
         </v-card>
       </v-col>
-      <v-btn @click="MoreRepos()">More</v-btn>
     </v-row>
     <v-row v-else-if="userNotFound">
       <v-col>
@@ -88,15 +90,24 @@ const MoreRepos = () => {
 };
 
 const handleScroll = () => {
-  if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+  console.log("innerHeight:", window.innerHeight);
+  console.log("scrollY:", window.scrollY);
+  console.log("offsetHeight:", document.body.offsetHeight);
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
     console.log("You are at the bottom of the page");
     MoreRepos();
   }
+  // console.log("innerHeight:", window.innerHeight);
+  // console.log("pageYOffset:", document.body.offsetHeight);
+  // console.log("offsetHeight:", document.body.offsetHeight);
 };
 
 onMounted(() => {
   loadRepos();
   document.addEventListener("scroll", handleScroll);
+  console.log("innerHeight:", window.innerHeight);
+  console.log("scrollY:", window.scrollY);
+  console.log("offsetHeight:", document.body.offsetHeight);
 });
 
 onUnmounted(() => {
