@@ -1,7 +1,13 @@
 <template>
   <v-container>
     <v-row>
-      <v-col v-for="project in filteredProjects" :key="project.name" cols="4">
+      <v-col
+        v-for="project in filteredProjects"
+        :key="project.name"
+        xs="12"
+        md="6"
+        lg="4"
+      >
         <v-card :to="{ name: project.name }">
           <v-img :src="project.img"></v-img>
           <v-card-title>{{ project.title }}</v-card-title>

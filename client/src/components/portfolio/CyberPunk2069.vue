@@ -17,7 +17,7 @@
 
     <v-divider></v-divider>
 
-    <div class="text-h4"><v-icon size="x-large" icon="mdi-github" />GitHub</div>
+    <div class="text-h4"><v-icon icon="mdi-github" />GitHub</div>
     <a
       href="https://github.com/qiyoudaoyi/I2P2final"
       class="text-decoration-none text-h6"
@@ -27,7 +27,7 @@
     </a>
 
     <v-divider></v-divider>
-    <div class="text-h4">Demo</div>
+    <div class="text-h4"><v-icon icon="mdi-movie-open" />Demo</div>
     <v-row justify="center">
       <v-col xs="12" md="6" align="center">
         <v-responsive :aspect-ratio="16 / 9">
@@ -44,7 +44,9 @@
       </v-col>
     </v-row>
     <v-divider></v-divider>
-    <div class="text-h4">Discussion and Retrospection</div>
+    <div class="text-h4">
+      <v-icon icon="mdi-lightbulb-on" />Discussion and Retrospection
+    </div>
     <div class="text-body-1" v-text="projectDetails.discussion"></div>
   </v-container>
 </template>
@@ -55,9 +57,9 @@ const projectDetails = {
   title: "CyberPunk2069",
   subtitle: "A C++ game developed in Allegro5.",
   introduction:
-    "I built this website because I wanted a place where I can demonstrate who I am and what I do. VUE is great and all, but I would love to switch to using REACT and NEXT for my next web-dev project since I like learning new stuffs.",
-  iFrameSrc: "https://www.youtube.com/embed/urXHLa1Hn-M",
+    "First of all, I'd like to give a big shoutout to my teammate 林俊霆 who build this game with me. We had a lot of fun! We named it \"CyberPunk 2069\" because we thought my game would be buggy and it turned out to be true. This is the final project in our I2P2 (Introduction to Programming 2) course. The hardest part of this project is to create various classes for each identity in the game. Atfer all, this is a C++ project. What's worse is that we are not allowed to use any third-party dependencies, only Allegro5. That is, we need to pretty much code everything from scratch.",
+  iFrameSrc: "https://www.youtube.com/embed/JN5yp2glteE",
   discussion:
-    "The most annoying part of building a website is connecting everything together. For me in the beggining, I had trouble connecting everying techs I'd learnt, calling my own RESTapi, deploying the whole thing to the web. But in the end, the result is satisfying and I am now looking forward to be accepted as an intern in Dcard.",
+    "If building websites and designing courses are the reasons I got good in JavaScript, this is definitely the reason I become in love with C++. Though writing C++ with Allegro5 is, without a doubt, no fun at all, I enjoy coding C++ else where. I love how C++ is fast, elegant, and useful in pretty much every usecases. I'd love to learn more abouy C++ and build a application out of it someday.",
 };
 </script>

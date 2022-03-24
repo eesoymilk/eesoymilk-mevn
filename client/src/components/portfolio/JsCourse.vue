@@ -17,7 +17,7 @@
 
     <v-divider></v-divider>
 
-    <div class="text-h4"><v-icon size="x-large" icon="mdi-github" />GitHub</div>
+    <div class="text-h4"><v-icon icon="mdi-github" />GitHub</div>
     <a
       href="https://github.com/qiyoudaoyi/822-web-course"
       class="text-decoration-none text-h6"
@@ -27,7 +27,9 @@
     </a>
 
     <v-divider></v-divider>
-    <div class="text-h4">Course Info</div>
+    <div class="text-h4">
+      <v-icon icon="mdi-google-classroom" /> Course Info
+    </div>
     <v-row justify="center">
       <v-col xs="12" md="6" align="center" class="pa-5">
         <a
@@ -55,7 +57,9 @@
       </v-col>
     </v-row>
     <v-divider></v-divider>
-    <div class="text-h4" v-text="'Discussion and Retrospection'"></div>
+    <div class="text-h4">
+      <v-icon icon="mdi-lightbulb-on" />Discussion and Retrospection
+    </div>
     <div class="text-body-1" v-text="projectDetails.discussion"></div>
   </v-container>
 </template>
@@ -67,9 +71,9 @@ const projectDetails = {
   title: "JavaScript Course for Beginners",
   subtitle: "A JS course I designed and taught for beginners to web-dev",
   introduction:
-    "I built this website because I wanted a place where I can demonstrate who I am and what I do. VUE is great and all, but I would love to switch to using REACT and NEXT for my next web-dev project since I like learning new stuffs.",
+    'I designed this course because I am a lecturer in a club called "Clode Garage 822" in my school NTHU. This is a club for makers and we love to create things using the power of coding. Also, I am now designing a MEVN stack course also for my club members. It\'s still in progress.',
   iFrameSrc: "https://www.youtube.com/embed/urXHLa1Hn-M",
   discussion:
-    "The most annoying part of building a website is connecting everything together. For me in the beggining, I had trouble connecting everying techs I'd learnt, calling my own RESTapi, deploying the whole thing to the web. But in the end, the result is satisfying and I am now looking forward to be accepted as an intern in Dcard.",
+    "That JavaScript is weird is a commonly known facts among developers, especially when you get to asyc-JavaScript. In the process of designing this course, I believed that I had been fostering my JS skills. Also, I like to teach people; that gives me a sense of joy. Therefore, I gradually love JS more and more, If it weren't for this course and the club 822, I wouldn't be loving web-dev so much.",
 };
 </script>

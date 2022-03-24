@@ -7,7 +7,7 @@
     <!-- Introduction -->
     <v-row align="center">
       <v-col sm="12" md="6" cols="xs-12 sm-6" align="left">
-        <div class="text-h4" v-text="'Introduction'"></div>
+        <div class="text-h4"><v-icon icon="mdi-flare" />Introduction</div>
         <div class="text-body-1" v-text="projectDetails.introduction"></div>
       </v-col>
       <v-col sm="12" md="6" cols="xs-12 sm-6" align="center" class="pa-10">
@@ -15,7 +15,38 @@
       </v-col>
     </v-row>
     <v-divider></v-divider>
-    <div class="text-h4" v-text="'Demo'"></div>
+    <div class="text-h4"><v-icon icon="mdi-github" />GitHub</div>
+    <div class="text-subtitle">
+      This project is built with Vivado so there are no GitHub repo dedicated
+      for this. Instead, I'll link you guys the entire project and report on
+      GoogleDrive.
+    </div>
+    <v-divider></v-divider>
+    <div class="text-h4">
+      <v-icon size="x-large" icon="mdi-google-drive" />GoogleDrive
+    </div>
+    <div>
+      <a
+        href="https://drive.google.com/drive/folders/1YuObjyKp_BxYtd0zmSvT8s_rryoouBfe?usp=sharing"
+        class="text-decoration-none text-h5"
+        target="_blank"
+      >
+        Project File:
+        https://drive.google.com/drive/folders/1YuObjyKp_BxYtd0zmSvT8s_rryoouBfe?usp=sharing
+      </a>
+    </div>
+    <div>
+      <a
+        href="https://drive.google.com/file/d/1lmUHHbYUhnOQlY5-pMD33owAjTb2j_Ae/view?usp=sharing"
+        class="text-decoration-none text-h5"
+        target="_blank"
+      >
+        Project Report:
+        https://drive.google.com/file/d/1lmUHHbYUhnOQlY5-pMD33owAjTb2j_Ae/view?usp=sharing
+      </a>
+    </div>
+    <v-divider></v-divider>
+    <div class="text-h4"><v-icon icon="mdi-movie-open" />Demo</div>
     <v-row justify="center">
       <v-col xs="12" md="6" align="center">
         <v-responsive :aspect-ratio="16 / 9">
@@ -33,7 +64,7 @@
     </v-row>
 
     <v-divider></v-divider>
-    <div class="text-h4" v-text="'How We Built it'"></div>
+    <div class="text-h4"><v-icon icon="mdi-cogs" />How We Built it</div>
     <div class="text-body-1" v-text="projectDetails.howWeBuiltIt"></div>
     <v-row justify="center">
       <v-col cols="12" align="center">
@@ -52,7 +83,9 @@
       </v-col>
     </v-row>
     <v-divider></v-divider>
-    <div class="text-h4" v-text="'Discussion and Retrospection'"></div>
+    <div class="text-h4">
+      <v-icon icon="mdi-lightbulb-on" />Discussion and Retrospection
+    </div>
     <div class="text-body-1" v-text="projectDetails.discussion"></div>
   </v-container>
 </template>

@@ -17,7 +17,7 @@
 
     <v-divider></v-divider>
 
-    <div class="text-h4"><v-icon size="x-large" icon="mdi-github" />GitHub</div>
+    <div class="text-h4"><v-icon icon="mdi-github" />GitHub</div>
     <a
       href="https://github.com/qiyoudaoyi/eesoymilk-mevn"
       class="text-decoration-none text-h6"
@@ -47,7 +47,9 @@
       </v-list-item>
     </v-list>
     <v-divider></v-divider>
-    <div class="text-h4" v-text="'Discussion and Retrospection'"></div>
+    <div class="text-h4">
+      <v-icon icon="mdi-lightbulb-on" />Discussion and Retrospection
+    </div>
     <div class="text-body-1" v-text="projectDetails.discussion"></div>
   </v-container>
 </template>
@@ -58,7 +60,7 @@ const projectDetails = {
   title: "MEVN Fullstack Website",
   subtitle: "A personal portfolio and blog of mine",
   introduction:
-    "I built this website because I wanted a place where I can demonstrate who I am and what I do. VUE is great and all, but I would love to switch to using REACT and NEXT for my next web-dev project since I like learning new stuffs.",
+    "I built this website because I wanted a place where I can demonstrate who I am and what I do. VUE is great and all, but I would love to switch to using REACT and NEXT for my next web-dev project since I like learning new stuffs. Last but not least, I love TypeScript and this project is, no exception, built with TypeScript!",
   frontend: [
     {
       name: "Vue3 with Vue-router",
@@ -106,6 +108,21 @@ const projectDetails = {
       name: "Mongoose",
       icon: "mdi-database",
       color: "red darken-4",
+    },
+    {
+      name: "MongoDB Atlas",
+      icon: "mdi-database",
+      color: "light-green",
+    },
+    {
+      name: "Gcloud App Engine",
+      icon: "mdi-google-cloud",
+      color: "indigo darken-4",
+    },
+    {
+      name: "Gcloud Secret Manager (password for MongoDB Atlas)",
+      icon: "mdi-google-cloud",
+      color: "indigo darken-4",
     },
   ],
   discussion:
