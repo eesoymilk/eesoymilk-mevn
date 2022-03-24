@@ -1,18 +1,27 @@
 <template>
   <v-container>
     <h2>Frontend</h2>
-    <v-card>
-      <v-card-text>
-        <v-text-field
-          v-model="username"
-          label="Github Username"
-          required
-          @keydown.enter="searchUser()"
-        >
-        </v-text-field>
-        <v-btn @click="searchUser()"> Go! </v-btn>
-      </v-card-text>
-    </v-card>
+    <v-form>
+      <v-container>
+        <v-row>
+          <v-col cols="10">
+            <v-text-field
+              clearable
+              v-model="username"
+              label="Enter A GitHub Username"
+              required
+              @keydown.enter="searchUser()"
+            >
+            </v-text-field>
+          </v-col>
+          <v-col cols="2">
+            <v-btn rounded block large ripple @click="searchUser()">
+              Go!
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-form>
   </v-container>
 </template>
 

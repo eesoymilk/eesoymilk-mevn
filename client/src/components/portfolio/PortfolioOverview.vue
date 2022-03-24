@@ -18,7 +18,7 @@ import jsCourse from "@/assets/js-course.jpg";
 import cyberPunk from "@/assets/cyber-punk-2069.jpg";
 import flappyBird from "@/assets/flappy-bird.png";
 import gameOfBalance from "@/assets/game-of-balance.png";
-import { computed, onMounted } from "vue";
+import { computed } from "vue";
 
 const props = defineProps({
   filter: {

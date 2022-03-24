@@ -1,6 +1,23 @@
 <template>
-  <v-container>
-    <v-row v-if="repos.length">
+  <v-container v-if="repos.length">
+    <v-card>
+      <v-card-title>
+        <v-row align="center">
+          <v-col cols="3" align="center">
+            <v-avatar class="profile" color="grey" size="100" tile>
+              <v-img
+                :src="repos[0].owner.avatar_url"
+                :alt="String($route.params.username)"
+              ></v-img>
+            </v-avatar>
+          </v-col>
+          <v-col cols="9">
+            {{ $route.params.username }}
+          </v-col>
+        </v-row>
+      </v-card-title>
+    </v-card>
+    <v-row>
       <v-col cols="12" v-for="repo in repos" :key="repo.id">
         <v-card
           class="my-5"
@@ -12,30 +29,31 @@
             },
           }"
         >
-          <v-card-title>Name: {{ repo.name }}</v-card-title>
-          <v-card-text>
-            Stargazers Count: {{ repo.stargazers_count }}
-          </v-card-text>
-          <v-card-text v-if="repo.description">
-            Description: {{ repo.description }}
-          </v-card-text>
-          <v-card-text v-else
-            >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem
-            quo cum asperiores debitis, molestiae reprehenderit repudiandae eius
-            quis nisi pariatur neque illum velit ullam magnam esse, maiores,
-            repellat soluta. Blanditiis!</v-card-text
-          >
+          <v-card-title>
+            <v-row align="center">
+              <v-col cols="8" align="left">
+                {{ repo.name }}
+              </v-col>
+              <v-col cols="4" align="right">
+                <v-icon icon="mdi-star" />{{ repo.stargazers_count }}
+              </v-col>
+            </v-row>
+          </v-card-title>
         </v-card>
       </v-col>
     </v-row>
-    <v-row v-else-if="userNotFound">
+  </v-container>
+  <v-container v-else-if="userNotFound">
+    <v-row>
       <v-col>
         <v-card>
           <v-card-title>Oops... User Not Found.</v-card-title>
         </v-card>
       </v-col>
     </v-row>
-    <v-row v-else>
+  </v-container>
+  <v-container v-else>
+    <v-row>
       <v-col>
         <v-card>
           <v-card-title>Loading...</v-card-title>
@@ -89,25 +107,19 @@ const MoreRepos = () => {
   loadRepos();
 };
 
+const isAtBottom = () =>
+  window.innerHeight + window.scrollY >= document.body.offsetHeight;
+
 const handleScroll = () => {
-  console.log("innerHeight:", window.innerHeight);
-  console.log("scrollY:", window.scrollY);
-  console.log("offsetHeight:", document.body.offsetHeight);
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+  if (isAtBottom()) {
     console.log("You are at the bottom of the page");
     MoreRepos();
   }
-  // console.log("innerHeight:", window.innerHeight);
-  // console.log("pageYOffset:", document.body.offsetHeight);
-  // console.log("offsetHeight:", document.body.offsetHeight);
 };
 
-onMounted(() => {
-  loadRepos();
+onMounted(async () => {
+  while (isAtBottom()) await loadRepos();
   document.addEventListener("scroll", handleScroll);
-  console.log("innerHeight:", window.innerHeight);
-  console.log("scrollY:", window.scrollY);
-  console.log("offsetHeight:", document.body.offsetHeight);
 });
 
 onUnmounted(() => {
