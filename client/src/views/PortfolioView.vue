@@ -7,7 +7,7 @@
 
     <v-spacer></v-spacer>
 
-    <v-btn-toggle v-model="toggle_filter" class="hidden-md-and-down">
+    <v-btn-toggle v-model="toggleFilter" class="hidden-md-and-down">
       <v-btn
         v-for="(filter, index) in filters"
         :key="index"
@@ -39,12 +39,12 @@
       </v-list>
     </v-navigation-drawer>
   </v-toolbar>
-  <RouterView :filter="filters[toggle_filter].name" />
+  <RouterView :filter="filter" />
 </template>
 
 <script lang="ts" setup>
 import { RouterView, useRouter } from "vue-router";
-import { ref, type Ref } from "vue";
+import { computed, ref, watch, type ComputedRef, type Ref } from "vue";
 
 const drawer = ref(false);
 const filters = [
@@ -65,11 +65,21 @@ const filters = [
     icon: "mdi-lightning-bolt",
   },
 ];
-const toggle_filter = ref(0) as Ref<number>;
+const toggleFilter = ref(0) as Ref<number>;
+const toggleOn = ref(true) as Ref<boolean>;
+const filter = computed<string>(() => {
+  if (!toggleOn.value) return filter.value;
+  return filters[toggleFilter.value].name;
+}) as ComputedRef<string>;
+
+watch(
+  toggleFilter,
+  (newToggle) => (toggleOn.value = newToggle === undefined ? false : true)
+);
 
 const router = useRouter();
 const changeFilter = (index: number) => {
-  toggle_filter.value = index;
+  toggleFilter.value = index;
   backToOverview();
 };
 const backToOverview = () => {
