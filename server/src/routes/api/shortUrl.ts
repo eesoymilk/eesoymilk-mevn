@@ -1,5 +1,4 @@
-import mongoose from "mongoose";
-import express, { Router } from "express";
+import { Router } from "express";
 import type { Request, Response } from "express";
 import ShortUrl from "../../models/shortUrl";
 
@@ -20,17 +19,13 @@ router.get("/:shortUrl", async (req: Request, res: Response) => {
 });
 
 // Delete ShortUrl
-router.delete("/:shortUrl", async (req: Request, res: Response) => {
-  if (await ShortUrl.findByIdAndDelete(req.params.shortUrl))
-    console.log("url deleted.");
-  res.status(200).send();
-});
-
 router.delete("/", async (req: Request, res: Response) => {
   console.log(req.body.id);
-  if (await ShortUrl.findByIdAndDelete(req.body.id))
+  if (await ShortUrl.findByIdAndDelete(req.body.id)) {
     console.log("url deleted.");
-  res.status(200).send();
+    res.sendStatus(200);
+  }
+  res.sendStatus(404);
 });
 
 // Add ShortUrl
