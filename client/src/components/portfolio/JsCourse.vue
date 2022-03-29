@@ -31,7 +31,7 @@
       <v-icon icon="mdi-google-classroom" /> Course Info
     </div>
     <v-row justify="center">
-      <v-col xs="12" md="6" align="center" class="pa-5">
+      <v-col cols="12" md="6" align="center" class="pa-5">
         <a
           href="https://hackmd.io/v5SruN2BRLWFeHBvfl9RTg"
           class="text-decoration-none text-h5"
@@ -41,7 +41,7 @@
         </a>
         <v-img :src="handout"></v-img>
       </v-col>
-      <v-col xs="12" md="6" align="center" class="pa-5">
+      <v-col cols="12" md="6" align="center" class="pa-5">
         <div class="text-h5">Course Video</div>
         <v-responsive :aspect-ratio="16 / 9">
           <iframe

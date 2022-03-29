@@ -21,7 +21,7 @@
         </v-col>
       </v-row>
     </v-form>
-    <v-divider></v-divider>
+    <v-divider class="my-5"></v-divider>
     <div class="text-h4"><v-icon icon="mdi-github" />GitHub</div>
     <a
       href="https://github.com/qiyoudaoyi/eesoymilk-mevn"
@@ -63,7 +63,7 @@
         </tr>
       </tbody>
     </v-table>
-    <v-divider></v-divider>
+    <v-divider class="my-5"></v-divider>
     <div class="text-h4"><v-icon icon="mdi-folder-check" />基本要求</div>
     <v-card
       elevation="6"

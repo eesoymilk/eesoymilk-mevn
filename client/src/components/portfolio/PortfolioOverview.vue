@@ -4,7 +4,7 @@
       <v-col
         v-for="project in filteredProjects"
         :key="project.name"
-        xs-and-done="12"
+        cols="12"
         md="6"
         lg="4"
       >
