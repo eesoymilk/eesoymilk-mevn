@@ -87,17 +87,15 @@
     </v-card>
     <v-card elevation="6" rounded class="my-5">
       <v-card-title>
-        <v-icon icon="mdi-checkbook" />
-        請在文件內說明如何啟動與作業架構的設計
+        <v-icon icon="mdi-checkbox-marked" />
+        <a
+          href="https://github.com/qiyoudaoyi/eesoymilk-mevn#dcard-homework"
+          class="text-decoration-none"
+          target="_blank"
+        >
+          請在文件內說明如何啟動與作業架構的設計 => README.md
+        </a>
       </v-card-title>
-      <v-card-text>
-        <v-checkbox
-          class="text-body-1"
-          :model-value="true"
-          :inline="true"
-        ></v-checkbox>
-        <span>hello</span>
-      </v-card-text>
     </v-card>
   </v-container>
 </template>
