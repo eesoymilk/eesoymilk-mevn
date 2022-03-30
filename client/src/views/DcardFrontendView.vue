@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <div class="text-h3">2022 Dcard Frontend Intern Homework</div>
+    <div class="text-h3 mt-5">2022 Dcard Frontend Intern Homework</div>
     <v-divider></v-divider>
     <div class="text-h4"><v-icon icon="mdi-movie-open" />Demo</div>
     <div class="text-body-1" v-text="details.intro"></div>
@@ -63,7 +63,7 @@
         </tr>
       </tbody>
     </v-table>
-    <v-divider class="my-5"></v-divider>
+    <v-divider class="my-10"></v-divider>
     <div class="text-h4"><v-icon icon="mdi-folder-check" />基本要求</div>
     <v-card
       elevation="6"
@@ -77,11 +77,8 @@
       >
       <v-card-text>
         <div v-for="todo in requirement.todos" :key="todo">
-          <v-checkbox
-            class="text-body-1"
-            :model-value="true"
-            :label="todo"
-          ></v-checkbox>
+          <v-icon icon="mdi-checkbox-marked" />
+          <span v-text="todo"></span>
         </div>
       </v-card-text>
     </v-card>
@@ -141,6 +138,5 @@ const requirements = [
       "有超連結可開新分頁至該 repository 在 GitHub 上的頁面",
     ],
   },
-  // { title: "請在文件內說明如何啟動與作業架構的設計", isLeave: true },
 ];
 </script>

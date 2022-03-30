@@ -129,6 +129,13 @@
   resolved "https://registry.yarnpkg.com/@types/auth0/-/auth0-2.34.13.tgz#9bc2c114efff012a46fbcae94976958dd24c6c3e"
   integrity sha512-eqTXGLGv4hLVMFaZOyZaXtjQqLnpgrcmyZXoRF99IQoOg1q/6KCy606+BRnqK6ywHGtI8fLk8Gjs2rvIFj0bWg==
 
+"@types/date-fns@^2.6.0":
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/@types/date-fns/-/date-fns-2.6.0.tgz#b062ca46562002909be0c63a6467ed173136acc1"
+  integrity sha1-sGLKRlYgApCb4MY6ZGftFzE2rME=
+  dependencies:
+    date-fns "*"
+
 "@types/json-schema@^7.0.9":
   version "7.0.9"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.9.tgz#97edc9037ea0c38585320b28964dde3b39e4660d"
@@ -653,6 +660,16 @@ csstype@^2.6.8:
   version "2.6.19"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.19.tgz#feeb5aae89020bb389e1f63669a5ed490e391caa"
   integrity sha512-ZVxXaNy28/k3kJg0Fou5MiYpp88j7H9hLZp8PDC3jV0WFjfH5E9xHb56L0W59cPbKbcHXeP4qyT8PrHp8t6LcQ==
+
+date-fns-tz@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/date-fns-tz/-/date-fns-tz-1.3.1.tgz#88b6374e5a74cfb11ec2d2b120cfe0bc02eeb862"
+  integrity sha512-Uy+wph6HcQ0IG8TWbVyXicgDmB1zdvb0CoIknZQaxiTun4uSfxLR+8gSTC2C3KCLq+0fEIuEtJ/ORDRIn6doQw==
+
+date-fns@*, date-fns@^2.28.0:
+  version "2.28.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.28.0.tgz#9570d656f5fc13143e50c975a3b6bbeb46cd08b2"
+  integrity sha512-8d35hViGYx/QH0icHYCeLmsLmMUheMmTyV9Fcm6gvNwdw31yXXH+O85sOBJ+OLnLQMKZowvpKb6FgMIQjcpvQw==
 
 debug@4.x, debug@^4.1.1, debug@^4.3.2:
   version "4.3.3"

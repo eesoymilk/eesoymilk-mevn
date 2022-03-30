@@ -13,9 +13,12 @@ router.get("/", async (req: Request, res: Response) => {
 // Redirect to original
 router.get("/:shortUrl", async (req: Request, res: Response) => {
   const shortUrl = await ShortUrl.findOne({ shortUrl: req.params.shortUrl });
-  if (shortUrl === null) return res.sendStatus(404);
-  shortUrl.save();
-  res.redirect(shortUrl.url);
+  if (shortUrl === null || new Date() > shortUrl.expireAt) {
+    res.sendStatus(404);
+    await ShortUrl.findByIdAndDelete(shortUrl?.id);
+    return;
+  }
+  res.redirect(shortUrl.url, 301);
 });
 
 // Delete ShortUrl
@@ -24,6 +27,7 @@ router.delete("/", async (req: Request, res: Response) => {
   if (await ShortUrl.findByIdAndDelete(req.body.id)) {
     console.log("url deleted.");
     res.sendStatus(200);
+    return;
   }
   res.sendStatus(404);
 });
@@ -31,10 +35,15 @@ router.delete("/", async (req: Request, res: Response) => {
 // Add ShortUrl
 router.post("/", async (req: Request, res: Response) => {
   console.log("adding new shortUrl...");
+  if (await ShortUrl.exists({ url: req.body.url })) {
+    console.log("url already exists...");
+    res.sendStatus(403);
+    return;
+  }
   const newShortUrl = new ShortUrl(req.body);
   await newShortUrl.save();
   console.log(newShortUrl);
-  res.status(201).send();
+  res.sendStatus(201);
 });
 
 export default router;

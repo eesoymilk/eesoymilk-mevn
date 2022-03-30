@@ -19,7 +19,7 @@ export default class ShortUrlService {
   }
 
   // C: CREATE SHORT URL
-  static async createShortUrl(newShortUrl: ShortUrl) {
+  static async createShortUrl(newShortUrl: ShortUrl): Promise<boolean> {
     try {
       console.log(newShortUrl);
       const res = await fetch(serverUrl, {
@@ -28,8 +28,11 @@ export default class ShortUrlService {
         body: JSON.stringify(newShortUrl),
       });
       console.log(res);
+      if (res.status !== 201) return false;
+      return true;
     } catch (err: unknown) {
       if (err instanceof Error) console.log(err.message);
+      return false;
     }
   }
 
