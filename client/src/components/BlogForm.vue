@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mt-5" style="width: 60vw; max-height: 60vw">
+  <v-card class="mt-5" style="width: 60vw; min-height: max-content">
     <v-card-title v-if="props.isNewPost">
       <div>Post Something!!!</div>
     </v-card-title>

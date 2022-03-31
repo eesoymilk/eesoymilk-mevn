@@ -5,7 +5,12 @@
       <v-icon icon="mdi-post" />
       Blog
     </v-toolbar-title>
-    <v-chip-group v-model="selectedTags" column multiple>
+    <v-chip-group
+      v-model="selectedTags"
+      column
+      multiple
+      class="hidden-md-and-down"
+    >
       <v-chip filter outlined v-for="tag in allTags" :key="tag">
         {{ tag }}
       </v-chip>
@@ -13,31 +18,18 @@
 
     <v-btn @click="posting = !posting">
       <v-icon icon="mdi-file-plus" />
-      <span>new post</span>
+      <span class="hidden-md-and-down">new post</span>
     </v-btn>
-    <!-- <v-btn :to="{ name: 'CreateBlog' }">
-      <v-icon icon="mdi-file-plus" />
-      <span>new post</span>
-    </v-btn> -->
-
-    <v-app-bar-nav-icon
-      @click.stop="drawer = !drawer"
-      class="hidden-lg-and-up"
-    ></v-app-bar-nav-icon>
-    <v-navigation-drawer
-      v-model="drawer"
-      bottom
-      temporary
-      position="right"
-      class="hidden-lg-and-up"
-    >
-      <v-list>
-        <v-list-item v-for="(tag, index) in allTags" :key="index">
-          {{ tag }}
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
   </v-toolbar>
+  <v-card class="hidden-lg-and-up">
+    <v-card-text>
+      <v-chip-group v-model="selectedTags" column multiple>
+        <v-chip filter outlined v-for="tag in allTags" :key="tag">
+          {{ tag }}
+        </v-chip>
+      </v-chip-group>
+    </v-card-text>
+  </v-card>
   <v-container>
     <v-row>
       <v-col
@@ -99,9 +91,7 @@ const blogs = ref(await BlogService.getBlogs()) as Ref<Blog[] | null>;
 const drawer = ref(false);
 const posting = ref(false);
 const selectedTags = ref([]) as Ref<number[]>;
-const allTags = ["diary", "ee", "progamming", "course", "webdev"];
-
-watch(selectedTags, (newSelectedTags) => console.log(newSelectedTags));
+const allTags = ["diary", "ee", "programming", "course", "webdev"];
 
 const filteredBlogs = computed(() =>
   blogs.value?.filter((blog) =>

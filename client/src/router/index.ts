@@ -7,7 +7,6 @@ import {
 import HomeView from "../views/HomeView.vue";
 import BlogView from "../views/BlogView.vue";
 import BlogDetailsView from "@/views/BlogDetailsView.vue";
-import CreateBlogView from "../views/CreateBlogView.vue";
 import CourseView from "../views/CourseView.vue";
 import AddCourseView from "../views/AddCourseView.vue";
 
@@ -45,12 +44,6 @@ const router = createRouter({
       name: "BlogDetails",
       component: BlogDetailsView,
     },
-    // {
-    //   path: "/blog/create",
-    //   name: "CreateBlog",
-    //   component: CreateBlogView,
-    //   beforeEnter: authenticationGuard,
-    // },
     {
       path: "/course",
       name: "Course",

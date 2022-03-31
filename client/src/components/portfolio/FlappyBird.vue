@@ -3,7 +3,7 @@
     <!-- Title -->
     <div class="text-h3" v-text="projectDetails.title"></div>
     <div class="text-subtitle" v-text="projectDetails.subtitle"></div>
-    <v-divider></v-divider>
+    <v-divider class="my-5"></v-divider>
     <!-- Introduction -->
     <v-row align="center">
       <v-col sm="12" md="6" cols="xs-12 sm-6" align="left">
@@ -14,14 +14,14 @@
         <v-img :src="flappyBird"></v-img>
       </v-col>
     </v-row>
-    <v-divider></v-divider>
+    <v-divider class="my-5"></v-divider>
     <div class="text-h4"><v-icon icon="mdi-github" />GitHub</div>
     <div class="text-subtitle">
       This project is built with Vivado so there are no GitHub repo dedicated
       for this. Instead, I'll link you guys the entire project and report on
       GoogleDrive.
     </div>
-    <v-divider></v-divider>
+    <v-divider class="my-5"></v-divider>
     <div class="text-h4">
       <v-icon size="x-large" icon="mdi-google-drive" />GoogleDrive
     </div>
@@ -45,7 +45,7 @@
         https://drive.google.com/file/d/1lmUHHbYUhnOQlY5-pMD33owAjTb2j_Ae/view?usp=sharing
       </a>
     </div>
-    <v-divider></v-divider>
+    <v-divider class="my-5"></v-divider>
     <div class="text-h4"><v-icon icon="mdi-movie-open" />Demo</div>
     <v-row justify="center">
       <v-col xs="12" md="6" align="center">
@@ -63,7 +63,7 @@
       </v-col>
     </v-row>
 
-    <v-divider></v-divider>
+    <v-divider class="my-5"></v-divider>
     <div class="text-h4"><v-icon icon="mdi-cogs" />How We Built it</div>
     <div class="text-body-1" v-text="projectDetails.howWeBuiltIt"></div>
     <v-row justify="center">
@@ -82,7 +82,7 @@
         <v-img :src="topModule"></v-img>
       </v-col>
     </v-row>
-    <v-divider></v-divider>
+    <v-divider class="my-5"></v-divider>
     <div class="text-h4">
       <v-icon icon="mdi-lightbulb-on" />Discussion and Retrospection
     </div>

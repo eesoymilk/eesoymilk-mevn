@@ -90,7 +90,6 @@ import frame4 from "@/assets/lumi/frame4.png";
 import frame5 from "@/assets/lumi/frame5.png";
 import frame6 from "@/assets/lumi/frame6.png";
 import portfolioIcon from "@/assets/lumi/icon_portfolio.png";
-import Frame from "@/assets/lumi/frame1.png";
 
 import soymilk from "@/assets/soymilk-blue-square.jpg";
 import jsCourse from "@/assets/js-course-square.jpg";

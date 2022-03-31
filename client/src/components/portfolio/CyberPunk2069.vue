@@ -3,7 +3,7 @@
     <!-- Title -->
     <div class="text-h3" v-text="projectDetails.title"></div>
     <div class="text-subtitle" v-text="projectDetails.subtitle"></div>
-    <v-divider></v-divider>
+    <v-divider class="my-5"></v-divider>
     <!-- Introduction -->
     <v-row align="center">
       <v-col sm="12" md="6" align="left">
@@ -15,7 +15,7 @@
       </v-col>
     </v-row>
 
-    <v-divider></v-divider>
+    <v-divider class="my-5"></v-divider>
 
     <div class="text-h4"><v-icon icon="mdi-github" />GitHub</div>
     <a
@@ -26,7 +26,7 @@
       qiyoudaoyi/I2P2final
     </a>
 
-    <v-divider></v-divider>
+    <v-divider class="my-5"></v-divider>
     <div class="text-h4"><v-icon icon="mdi-movie-open" />Demo</div>
     <v-row justify="center">
       <v-col xs="12" md="6" align="center">
@@ -43,7 +43,7 @@
         </v-responsive>
       </v-col>
     </v-row>
-    <v-divider></v-divider>
+    <v-divider class="my-5"></v-divider>
     <div class="text-h4">
       <v-icon icon="mdi-lightbulb-on" />Discussion and Retrospection
     </div>

@@ -3,7 +3,7 @@
     <!-- Title -->
     <div class="text-h3" v-text="projectDetails.title"></div>
     <div class="text-subtitle" v-text="projectDetails.subtitle"></div>
-    <v-divider></v-divider>
+    <v-divider class="my-5"></v-divider>
     <!-- Introduction -->
     <v-row align="center">
       <v-col sm="12" md="6" align="left">
@@ -15,7 +15,7 @@
       </v-col>
     </v-row>
 
-    <v-divider></v-divider>
+    <v-divider class="my-5"></v-divider>
 
     <div class="text-h4"><v-icon icon="mdi-github" />GitHub</div>
     <a
@@ -26,7 +26,7 @@
       qiyoudaoyi/eesoymilk-mevn
     </a>
 
-    <v-divider></v-divider>
+    <v-divider class="my-5"></v-divider>
     <div class="text-h4"><v-icon icon="mdi-chart-tree" />How I Built it</div>
     <div class="text-h5"><v-icon icon="mdi-account-group" />Frontend</div>
     <v-list subheader>
@@ -46,7 +46,7 @@
         <v-list-item-title v-text="tech.name"></v-list-item-title>
       </v-list-item>
     </v-list>
-    <v-divider></v-divider>
+    <v-divider class="my-5"></v-divider>
     <div class="text-h4">
       <v-icon icon="mdi-lightbulb-on" />Discussion and Retrospection
     </div>
