@@ -24,8 +24,8 @@
         <v-expansion-panel-title>
           <div class="text-h4">All Shorten Urls</div>
           <v-spacer></v-spacer>
-          <div class="text-subtitle" v-if="panel === 0">Expand</div>
-          <div class="text-subtitle" v-else>Close</div>
+          <div class="text-subtitle" v-if="panel === 0">Close</div>
+          <div class="text-subtitle" v-else>Expand</div>
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <v-table>

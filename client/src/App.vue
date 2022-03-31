@@ -12,7 +12,6 @@
         </template>
       </suspense>
     </v-main>
-    <v-footer></v-footer>
   </v-app>
 </template>
 

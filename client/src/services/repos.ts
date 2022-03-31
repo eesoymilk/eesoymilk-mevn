@@ -3,7 +3,7 @@ import type Repository from "@/models/repository";
 const ghapi_url = `https://api.github.com`;
 
 export default class ReposService {
-  static per_page = 3;
+  static per_page = 10;
 
   // GET REPOS
   static async getRepos(username: string, page: number) {

@@ -45,11 +45,12 @@ if (!(process.env.PORT && process.env.CLIENT_ORIGIN_URL)) {
 }
 
 const NODE_ENV = app.get("env");
-const PORT: number = parseInt(process.env.PORT as string, 10);
 const CLIENT_ORIGIN_URL =
   NODE_ENV === "development"
     ? "http://localhost:4040"
     : process.env.CLIENT_ORIGIN_URL;
+export const SERVER_URL =
+  NODE_ENV === "development" ? "http://localhost:8080" : process.env.SERVER_URL;
 
 // Middlewares Hell...
 app.use(express.json());
@@ -79,7 +80,7 @@ app.use(nocache());
 app.use(
   cors({
     origin: CLIENT_ORIGIN_URL,
-    methods: ["GET", "POST", "UPDATE", "DELETE"],
+    methods: ["GET", "POST", "PATCH", "DELETE"],
     allowedHeaders: ["Authorization", "Content-Type"],
     maxAge: 86400,
   })

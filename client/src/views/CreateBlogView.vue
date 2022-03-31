@@ -1,54 +1,49 @@
 <template>
-  <v-card class="mt-5">
-    <v-card-title>Creating A New Post</v-card-title>
-    <v-card-title>
-      <v-text-field label="Title" v-model="blog.title"></v-text-field>
-    </v-card-title>
-    <v-card-text>
-      <v-textarea label="Body" v-model="blog.body"></v-textarea>
-    </v-card-text>
+  <v-container>
+    <v-card class="mt-5">
+      <v-card-title>Creating A New Post</v-card-title>
+      <v-card-title>
+        <v-text-field label="Title" v-model="blog.title"></v-text-field>
+      </v-card-title>
+      <v-card-text>
+        <v-textarea label="Body" v-model="blog.body"></v-textarea>
+      </v-card-text>
 
-    <v-card-actions>
-      <v-container fluid>
-        <v-row>
-          <v-col cols="4">
-            <v-text-field
-              prefix="#"
-              v-model="tag"
-              @keydown.enter.prevent="addTag()"
-            ></v-text-field>
-          </v-col>
-          <v-col cols="8">
-            <v-item-group>
-              <v-item v-for="tag in blog.tags" :key="tag">
-                <v-chip class="ma-1" closable @click="removeTag(tag)">
-                  #{{ tag }}
-                </v-chip>
-              </v-item>
-            </v-item-group>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-card-actions>
+      <v-card-actions>
+        <v-container fluid>
+          <v-row>
+            <v-col cols="12">
+              <v-combobox
+                v-model="blog.tags"
+                :items="defaultTags"
+                label="Tags"
+                multiple
+                chips
+              ></v-combobox>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-card-actions>
 
-    <v-card-actions>
-      <v-btn :to="{ name: 'Blog' }">
-        <v-icon>mdi-undo</v-icon>
-        <span>Back</span>
-      </v-btn>
-      <v-btn @click="submitBlog()">
-        <v-icon>mdi-cloud-upload</v-icon>
-        <span>Submit</span>
-      </v-btn>
-    </v-card-actions>
-  </v-card>
+      <v-card-actions>
+        <v-btn :to="{ name: 'Blog' }">
+          <v-icon>mdi-undo</v-icon>
+          <span>Back</span>
+        </v-btn>
+        <v-btn @click="submitBlog()">
+          <v-icon>mdi-cloud-upload</v-icon>
+          <span>Submit</span>
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-container>
 </template>
 
 <script lang="ts" setup>
 import type Blog from "@/models/blog";
 import type BlogValidation from "@/services/blogService";
 import BlogService from "@/services/blogService";
-import { reactive, ref, type Ref } from "vue";
+import { reactive } from "vue";
 import { useRouter } from "vue-router";
 
 import type { Auth0Plugin } from "@/models/auth0Plugin";
@@ -59,7 +54,6 @@ const blog = reactive<Blog>({
   body: "",
   tags: [],
 }) as Blog;
-const tag = ref("") as Ref<string>;
 
 let blogValidation = reactive<BlogValidation>({
   isValid: false,
@@ -67,27 +61,7 @@ let blogValidation = reactive<BlogValidation>({
   bodyErrors: null,
   tagsErrors: null,
 });
-const tagError = ref([]) as Ref<string[]>;
-
-// ALL ABOUT TAGS
-const addTag = (): void => {
-  const errors: string[] = [];
-
-  if (!tag.value) errors.push("A tag name is required.");
-  if (blog.tags.includes(tag.value)) errors.push("This tag already exists.");
-
-  if (errors.length) {
-    tagError.value = errors;
-  } else {
-    blog.tags.push(tag.value);
-    tag.value = "";
-  }
-};
-
-const removeTag = (tag: string): void => {
-  const idx = blog.tags.indexOf(tag);
-  if (idx > -1) blog.tags.splice(idx, 1);
-};
+const defaultTags = ["diary", "course", "ee", "programming", "webdev", "vue"];
 
 // Auth0 and submittion
 const router = useRouter();

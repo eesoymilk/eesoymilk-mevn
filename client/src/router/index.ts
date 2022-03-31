@@ -45,12 +45,12 @@ const router = createRouter({
       name: "BlogDetails",
       component: BlogDetailsView,
     },
-    {
-      path: "/blog/create",
-      name: "CreateBlog",
-      component: CreateBlogView,
-      beforeEnter: authenticationGuard,
-    },
+    // {
+    //   path: "/blog/create",
+    //   name: "CreateBlog",
+    //   component: CreateBlogView,
+    //   beforeEnter: authenticationGuard,
+    // },
     {
       path: "/course",
       name: "Course",

@@ -442,10 +442,10 @@
   resolved "https://registry.yarnpkg.com/@vue/tsconfig/-/tsconfig-0.1.3.tgz#4a61dbd29783d01ddab504276dcf0c2b6988654f"
   integrity sha512-kQVsh8yyWPvHpb8gIc9l/HIDiiVUy1amynLNpCy8p+FoCiZXCo6fQos5/097MmnNZc9AtseDsCrfkhqCrJ8Olg==
 
-"@vuetify/nightly@^3.0.0-next-20220322.0":
-  version "3.0.0-next-20220322.0"
-  resolved "https://registry.yarnpkg.com/@vuetify/nightly/-/nightly-3.0.0-next-20220322.0.tgz#49ec3b220b826691a772fee5ce021c262f117d9c"
-  integrity sha512-b7UDv33h3ZbEOsEJZpxwXXp0Ta0hgkg7ZUOA+TGinnlXLd15sf7IhPcr0JoPO9wiRv3pmlFWpwV0lFtEUCd8kg==
+"@vuetify/nightly@^3.0.0-next-20220331.0":
+  version "3.0.0-next-20220331.0"
+  resolved "https://registry.yarnpkg.com/@vuetify/nightly/-/nightly-3.0.0-next-20220331.0.tgz#7e5cf680a2a171de73f4110ac33ac6f12cedc5c3"
+  integrity sha512-+wLnNU0BA7u2oVGGt1ct+ZfP6hvq8OO/wFcL8w9iUR4SeC6fREY6WxM1TGKgImuS59+ZGPH+SDHzT/AUpt+QxA==
 
 abortcontroller-polyfill@^1.7.3:
   version "1.7.3"

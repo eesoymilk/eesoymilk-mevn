@@ -27,7 +27,7 @@ export default class ShortUrlService {
         headers,
         body: JSON.stringify(newShortUrl),
       });
-      console.log(res);
+      console.log(await res.json());
       if (res.status !== 201) return false;
       return true;
     } catch (err: unknown) {

@@ -11,14 +11,16 @@
               ></v-img>
             </v-avatar>
           </v-col>
-          <v-col cols="9">
-            {{ $route.params.username }}
+          <v-col cols="9" align="center">
+            <div class="text-h4">
+              {{ $route.params.username }}'s Repositories
+            </div>
           </v-col>
         </v-row>
       </v-card-title>
     </v-card>
     <v-row>
-      <v-col cols="12" v-for="repo in repos" :key="repo.id">
+      <!-- <v-col cols="12" v-for="repo in repos" :key="repo.id">
         <v-card
           class="my-5"
           :to="{
@@ -40,6 +42,21 @@
             </v-row>
           </v-card-title>
         </v-card>
+      </v-col> -->
+      <v-col align="center">
+        <v-table density="comfortable">
+          <tbody>
+            <tr v-for="repo in repos" :key="repo.id" @click="toRepo(repo.name)">
+              <td class="text-body-1">
+                {{ repo.name }}
+              </td>
+              <td class="text-right">
+                <v-icon icon="mdi-star" />
+                <span>{{ repo.stargazers_count }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </v-table>
       </v-col>
     </v-row>
   </v-container>
@@ -64,17 +81,25 @@
 </template>
 
 <script lang="ts" setup>
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import type Repository from "@/models/repository";
 import ReposService from "@/services/repos";
 import { onMounted, onUnmounted, ref, type Ref } from "vue";
 
 const repos = ref([]) as Ref<Repository[]>;
 const route = useRoute();
+const router = useRouter();
 const userNotFound = ref(false) as Ref<boolean>;
 const page = ref(1) as Ref<number>;
 const endOfRepos = ref(false) as Ref<boolean>;
 const isLoadingRepos = ref(false) as Ref<boolean>;
+
+const toRepo = (repo: string) => {
+  router.push({
+    name: "Repo",
+    params: { username: route.params.username, repo },
+  });
+};
 
 const loadRepos = async () => {
   isLoadingRepos.value = true;

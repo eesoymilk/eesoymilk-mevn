@@ -1,6 +1,6 @@
 <template>
   <!-- style="max-width: 100%; position: absolute; top: 0px" -->
-  <div style="min-height: 9vw">
+  <div style="min-height: 9vw; margin-top: 4.5vw">
     <v-row style="width: 100%">
       <v-col cols="5"></v-col>
       <v-col cols="7">

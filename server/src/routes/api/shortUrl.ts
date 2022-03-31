@@ -1,6 +1,8 @@
 import { Router } from "express";
 import type { Request, Response } from "express";
 import ShortUrl from "../../models/shortUrl";
+import { SERVER_URL } from "../../app";
+import shortUrl from "../../models/shortUrl";
 
 const router: Router = Router();
 
@@ -42,8 +44,11 @@ router.post("/", async (req: Request, res: Response) => {
   }
   const newShortUrl = new ShortUrl(req.body);
   await newShortUrl.save();
-  console.log(newShortUrl);
-  res.sendStatus(201);
+  console.log(newShortUrl.shortUrl);
+  res.status(201).send({
+    id: newShortUrl._id,
+    shortUrl: `${SERVER_URL}/api/shortUrl/${newShortUrl.shortUrl}`,
+  });
 });
 
 export default router;

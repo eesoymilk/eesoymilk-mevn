@@ -5,8 +5,6 @@
       Portfolios
     </v-toolbar-title>
 
-    <v-spacer></v-spacer>
-
     <v-btn-toggle v-model="toggleFilter" class="hidden-md-and-down">
       <v-btn
         v-for="(filter, index) in filters"
@@ -17,7 +15,6 @@
       </v-btn>
     </v-btn-toggle>
     <v-app-bar-nav-icon
-      variant="text"
       @click.stop="drawer = !drawer"
       class="hidden-lg-and-up"
     ></v-app-bar-nav-icon>

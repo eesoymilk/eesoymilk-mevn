@@ -8,10 +8,22 @@
         md="6"
         lg="4"
       >
-        <v-card :to="{ name: project.name }">
+        <v-card height="100%" :to="{ name: project.name }">
           <v-img :src="project.img"></v-img>
-          <v-card-title>{{ project.title }}</v-card-title>
-          <v-card-text>{{ project.snippet }}</v-card-text>
+          <v-spacer></v-spacer>
+          <v-card-title>
+            {{ project.title }}
+          </v-card-title>
+          <v-card-actions>
+            <v-chip
+              v-for="tag in project.tags"
+              :key="tag"
+              color="indigo"
+              class="ma-2"
+            >
+              {{ tag }}
+            </v-chip>
+          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>

@@ -26,10 +26,6 @@ export default interface BlogValidation {
 export default class BlogService {
   // R: GET BLOG (PUBLIC)
   static async getBlogs() {
-    selectedAccessControlLevel.value = AccessControlLevel.PUBLIC;
-    // const headers = {
-    //   "Content-Type": "application/json",
-    // };
     try {
       const blogs = await (await fetch(url)).json();
       return blogs as Promise<Blog[]>;
@@ -83,9 +79,23 @@ export default class BlogService {
   }
 
   // U: UPDTAE BLOG
-  static async upadteBlog(id: string, updatedBlog: Blog) {
+  static async updateBlog(accessToken: string, id: string, updatedBlog: Blog) {
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    };
     try {
-      console.log(id, updatedBlog);
+      console.log(id, accessToken, updatedBlog);
+      const blogValidation = BlogService.validateBlog(updatedBlog);
+      if (!blogValidation.isValid) throw new Error("Invalid Blog.");
+      const res = await fetch(`${url}/${id}`, {
+        method: "PATCH",
+        headers,
+        body: JSON.stringify(updatedBlog),
+      });
+      const json = await res.json();
+      console.log(json);
+      return blogValidation;
     } catch (err: unknown) {
       if (err instanceof Error) console.log(err);
       return null;
@@ -93,9 +103,18 @@ export default class BlogService {
   }
 
   // D: DELETE BLOG
-  static async deleteBlog(id: string) {
+  static async deleteBlog(accessToken: string, id: string) {
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    };
     try {
-      console.log(id);
+      const res = await fetch(`${url}/${id}`, {
+        method: "DELETE",
+        headers,
+        body: JSON.stringify({ id }),
+      });
+      console.log(res);
     } catch (err: unknown) {
       if (err instanceof Error) console.log(err);
       return null;
