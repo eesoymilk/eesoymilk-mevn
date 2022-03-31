@@ -46,7 +46,12 @@
       <v-col align="center">
         <v-table density="comfortable">
           <tbody>
-            <tr v-for="repo in repos" :key="repo.id" @click="toRepo(repo.name)">
+            <tr
+              v-for="repo in repos"
+              :key="repo.id"
+              @click="toRepo(repo.name)"
+              style="height: 10vh"
+            >
               <td class="text-body-1">
                 {{ repo.name }}
               </td>
@@ -78,6 +83,14 @@
       </v-col>
     </v-row>
   </v-container>
+  <v-overlay :model-value="isLoadingRepos" class="align-center justify-center">
+    <v-progress-circular
+      indeterminate
+      color="blue"
+      size="200"
+      width="20"
+    ></v-progress-circular>
+  </v-overlay>
 </template>
 
 <script lang="ts" setup>

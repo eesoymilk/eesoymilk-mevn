@@ -26,6 +26,7 @@ const eeSoymilkTheme: ThemeDefinition = {
   dark: false,
   colors: {
     surface: "#f5f5f5",
+    // surface: "#f5f5f5",
     // primary: "#90dde3",
     // secondary: "#091015",
     // background: "#f5f5f5",
@@ -50,6 +51,7 @@ const vuetify = createVuetify({
     },
   },
   theme: {
+    // defaultTheme: "dark",
     defaultTheme: "eeSoymilkTheme",
     themes: { eeSoymilkTheme },
   },

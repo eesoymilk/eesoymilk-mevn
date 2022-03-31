@@ -1,5 +1,5 @@
 <template>
-  <v-app absolute>
+  <v-app absolute style="min-height: 100vh">
     <NavBar />
     <v-main>
       <!-- <v-card v-if="user" color="light-green" class="ma-5">

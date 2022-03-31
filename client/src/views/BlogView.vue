@@ -88,7 +88,6 @@ import type { Auth0Plugin } from "@/models/auth0Plugin";
 import { useAuth0 } from "@/services/auth0Plugin";
 
 const blogs = ref(await BlogService.getBlogs()) as Ref<Blog[] | null>;
-const drawer = ref(false);
 const posting = ref(false);
 const selectedTags = ref([]) as Ref<number[]>;
 const allTags = ["diary", "ee", "programming", "course", "webdev"];

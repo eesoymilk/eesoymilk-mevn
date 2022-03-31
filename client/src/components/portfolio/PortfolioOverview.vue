@@ -8,7 +8,7 @@
         md="6"
         lg="4"
       >
-        <v-card height="100%" :to="{ name: project.name }" color="primary">
+        <v-card height="100%" :to="{ name: project.name }">
           <v-img :src="project.img"></v-img>
           <v-spacer></v-spacer>
           <v-card-title>
