@@ -1,29 +1,15 @@
 <template>
-  <!-- style="max-width: 100%; position: absolute; top: 0px" -->
-  <v-btn @click="showDisplay()"></v-btn>
-  <div style="min-height: 9vw; margin-top: 3vw">
+  <div style="min-height: 9vw; margin-top: 5vw">
     <v-row style="width: 100%">
       <v-col cols="5"></v-col>
-      <v-col cols="7">
-        <!-- <div class="text-h5" v-text="selfIntro.nameIntro"></div>
-        <v-btn
-          class="ma-2"
-          elevation="6"
-          tile
-          rounded
-          outlined
-          depressed
-          v-for="name in selfIntro.names"
-          :key="name"
-          v-text="name"
-        ></v-btn>
-        <div class="text-h4" v-text="selfIntro.header"></div> -->
-      </v-col>
+      <v-col cols="7"></v-col>
     </v-row>
   </div>
   <div style="position: relative">
     <v-row style="width: 100%; position: absolute; top: -8vw; z-index: 1000">
-      <v-col align="center"><v-img width="50%" :src="profilePic" /></v-col>
+      <v-col align="center">
+        <v-img width="50%" :src="profilePic" />
+      </v-col>
       <v-col cols="6"></v-col>
       <v-col cols="1"></v-col>
     </v-row>
@@ -31,91 +17,76 @@
   <div style="position: relative" class="mb-5">
     <v-img :src="divider" />
     <v-row style="width: 100%; position: absolute; top: 0px; bottom: 0px">
-      <!-- <v-col align="center"><v-img width="48%" :src="profilePic" /></v-col> -->
-      <v-col cols="5" class="mt-10"></v-col>
-      <v-col cols="6" class="mt-10 py-6 align-center justify-center">
-        <div class="text-h5" v-text="selfIntro.nameIntro"></div>
-        <v-btn
-          class="ma-2"
-          elevation="6"
-          tile
-          rounded
-          outlined
-          depressed
-          v-for="name in selfIntro.names"
-          :key="name"
-          v-text="name"
-        ></v-btn>
-        <div class="text-h4" v-text="selfIntro.header"></div>
-        <!-- <div class="text-h5">My Introduction Video</div>
+      <v-col cols="5" align="center"> </v-col>
+      <v-col cols="6" class="align-center justify-center" style="margin: 2vw">
+        <div class="text-subtitle text-lg-h5" v-text="selfIntro"></div>
+        <div
+          class="hidden-lg-and-up"
+          style="
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            height: 100%;
+          "
+        >
+          <div
+            class="text-h5"
+            style="margin: auto auto; flex-basis: 20%; text-align: center"
+          >
+            I
+          </div>
+          <div style="margin: auto; flex-basis: 80%">
+            <v-chip
+              v-for="thing in whatIDos"
+              :key="thing.name"
+              :color="thing.color"
+              class=""
+              style="display: block"
+              v-text="thing.name"
+            ></v-chip>
+          </div>
+        </div>
         <iframe
-          width="80%"
-          height="80%"
+          class="hidden-md-and-down"
           src="https://www.youtube.com/embed/MzCb49dcR2E"
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
-        ></iframe> -->
+          style="display: block; margin: auto; width: 48vw; height: 27vw"
+        ></iframe>
       </v-col>
       <v-col cols="1"></v-col>
     </v-row>
   </div>
+  <iframe
+    class="hidden-lg-and-up"
+    src="https://www.youtube.com/embed/MzCb49dcR2E"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+    style="display: block; margin: auto; width: 80vw; height: 45vw"
+  ></iframe>
   <v-divider></v-divider>
-  <!-- <div class="text-h4" style="height: max-content">
-    <img style="height: 100px" :src="portfolioIcon" />My Works
-  </div>
-  <div class="mt-10" style="position: relative">
-    <v-img :src="frames" style="pointer-events: none; z-index: 10" />
-    <v-row
-      align="center"
-      style="
-        width: 100%;
-        position: absolute;
-        top: 0px;
-        bottom: 0px;
-        margin: auto;
-      "
+  <v-row>
+    <v-col cols="1" class="hidden-md-and-down"></v-col>
+    <v-col
+      cols="6"
+      md="4"
+      lg="2"
+      v-for="preview in portfolioPreviews"
+      :key="preview.name"
     >
-      <v-col
-        align="center"
-        cols="2"
-        v-for="p in portfoliosPreview"
-        :key="p.name"
-        style="position: relative; cursor: pointer"
-        @click="navigateTo(p.name)"
-      >
-        <v-img :src="p.img" />
-      </v-col>
-      <v-col align="center" cols="2">6</v-col>
-    </v-row> -->
-  <!-- </div> -->
-
-  <!-- <v-sheet class="mt-10" style="position: relative" width="25vw">
-    <v-img :src="frame1" style="pointer-events: none; z-index: 10" />
-    <v-img
-      :src="flappyBird"
-      style="
-        width: 100%;
-        position: absolute;
-        top: 0px;
-        bottom: 0px;
-        margin: auto;
-      "
-    />
-  </v-sheet> -->
-  <v-carousel v-model="curPreviewPage">
-    <v-carousel-item v-for="page in portfolioPreviews.length / 3" :key="page">
-      <!-- <PortfolioPreviewSheet v-bind="preview" /> -->
-      {{ page }}
-    </v-carousel-item>
-  </v-carousel>
+      <PortfolioPreviewSheet v-bind="preview" />
+    </v-col>
+    <v-col cols="1" class="hidden-md-and-down"></v-col>
+  </v-row>
 </template>
 
 <script lang="ts" setup>
 import PortfolioPreviewSheet from "@/components/portfolio/PortfolioPreviewSheet.vue";
 
-import AboutMe from "@/assets/lumi/AboutMe3_2.png";
 import profilePic from "@/assets/lumi/ProfilePic.png";
 import divider from "@/assets/lumi/AboutMe3_3.png";
 import frame1 from "@/assets/lumi/frame1.png";
@@ -131,14 +102,7 @@ import cyberPunk from "@/assets/cyber-punk-2069-square.jpg";
 import flappyBird from "@/assets/flappy-bird-square.jpg";
 import gameOfBalance from "@/assets/game-of-balance-square.jpg";
 import { useRouter } from "vue-router";
-import { computed, ref } from "vue";
-import { useDisplay } from "@vuetify/nightly/lib/framework";
 
-const display = useDisplay();
-const showDisplay = () => {
-  console.log(display);
-};
-const curPreviewPage = ref(0);
 const portfolioPreviews = [
   {
     imgSrc: soymilk,
@@ -167,14 +131,19 @@ const portfolioPreviews = [
   },
 ];
 
-const selfIntro = {
-  nameIntro: "I am...",
-  names: ["an EE Student", "YouTuber eeSoymilk", "Wilson", "張育瑋"],
-  header: "I LEARN, I MAKE, I INNOVATE...",
-};
-
-const router = useRouter();
-const navigateTo = (name: string) => {
-  router.push({ name });
-};
+const selfIntro = "I am Wilson,";
+const whatIDos = [
+  {
+    name: "learn",
+    color: "amber",
+  },
+  {
+    name: "make",
+    color: "light-green",
+  },
+  {
+    name: "innovate",
+    color: "primary",
+  },
+];
 </script>
