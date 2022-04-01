@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import mevn from "@/assets/ononoki.jpg";
+import mevn from "@/assets/mevn.jpg";
 import jsCourse from "@/assets/js-course.jpg";
 import cyberPunk from "@/assets/cyber-punk-2069.jpg";
 import flappyBird from "@/assets/flappy-bird.png";

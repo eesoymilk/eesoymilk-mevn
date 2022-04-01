@@ -30,5 +30,6 @@ onMounted(async () => {
   await auth0.createClient();
   await auth0.handleCallback();
   console.log(user?.value);
+  window.document.title = "eeSoymilk";
 });
 </script>

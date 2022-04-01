@@ -55,7 +55,7 @@
 </template>
 
 <script setup lang="ts">
-import mevn from "@/assets/ononoki.jpg";
+import mevn from "@/assets/mevn.jpg";
 const projectDetails = {
   title: "MEVN Fullstack Website",
   subtitle: "A personal portfolio and blog of mine",
