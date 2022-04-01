@@ -7,8 +7,18 @@
           <v-card-subtitle>
             {{ utcToTaipeiTime(blog.createdAt as Date) }}
           </v-card-subtitle>
-          <v-card-text class="text-body-1">
+          <!-- <v-card-text class="text-body-1">
             <pre>{{ blog.body }}</pre>
+          </v-card-text> -->
+          <v-card-text>
+            <div
+              v-for="paragraph in paragraphs"
+              :key="paragraph"
+              class="text-body-1"
+            >
+              <div v-if="paragraph">{{ paragraph }}</div>
+              <br v-else />
+            </div>
           </v-card-text>
           <v-card-actions>
             <v-chip
@@ -53,6 +63,7 @@ import type { Auth0Plugin } from "@/models/auth0Plugin";
 import { useAuth0 } from "@/services/auth0Plugin";
 
 const blog = ref(null) as Ref<Blog | null>;
+const paragraphs = ref([]) as Ref<string[]>;
 const editing = ref(false) as Ref<boolean>;
 let accessToken = ref("");
 const route = useRoute();
@@ -91,5 +102,6 @@ onMounted(async () => {
   accessToken.value = (await auth0?.getAccessToken()) as string;
   console.log("Token:", accessToken.value);
   blog.value = await BlogService.getBlog(route.params.id as string);
+  paragraphs.value = blog.value?.body.split("\n") as string[];
 });
 </script>
