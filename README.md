@@ -157,7 +157,7 @@ I use **MongoDB Atlas** for my database and connecting it with all the codes I u
 
 #### How I built it
 
-This homework is a simple CRUD implementation and some testings. To make the project more organized. I've written in total 5 `.ts` files relating this homework. Let's go through them one by one.
+This homework is a simple CRUD implementation and some testings. To make the project more organized. I've written in total 5 `.ts` files relating to this homework. Let's go through them one by one.
 
 - [`app.ts`](https://github.com/qiyoudaoyi/eesoymilk-mevn/blob/main/server/src/app.ts), and [`index.ts`](https://github.com/qiyoudaoyi/eesoymilk-mevn/blob/main/server/src/index.ts)
   Express and middlewares setup, trvial stuff.
@@ -171,7 +171,7 @@ This homework is a simple CRUD implementation and some testings. To make the pro
 #### Constrains and Error Handlings
 
 - You cannot shorten url that is already shortened.
-- You cannot shorten url that cannot be access.
+- You cannot shorten url that cannot be accessd.
 - Respond with status 404 if someone tries to access non-existing short url.
 
 #### Handling Multiple Requests
