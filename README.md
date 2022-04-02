@@ -171,7 +171,7 @@ This homework is a simple CRUD implementation and some testings. To make the pro
 #### Constrains and Error Handlings
 
 - You cannot shorten url that is already shortened.
-- You cannot shorten url that cannot be accessd.
+- You cannot shorten url that cannot be accessed.
 - Respond with status 404 if someone tries to access non-existing short url.
 
 #### Handling Multiple Requests
