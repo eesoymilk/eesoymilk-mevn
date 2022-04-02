@@ -4,11 +4,11 @@ import {
   type RouteRecordRaw,
 } from "vue-router";
 
-import HomeView from "../views/HomeView.vue";
-import BlogView from "../views/BlogView.vue";
+import HomeView from "@/views/HomeView.vue";
+import BlogView from "@/views/BlogView.vue";
 import BlogDetailsView from "@/views/BlogDetailsView.vue";
-import CourseView from "../views/CourseView.vue";
-import AddCourseView from "../views/AddCourseView.vue";
+import CourseView from "@/views/CourseView.vue";
+import AddCourseView from "@/views/AddCourseView.vue";
 
 import PortfolioView from "@/views/PortfolioView.vue";
 import PortfolioOverview from "@/components/portfolio/PortfolioOverview.vue";

@@ -36,13 +36,13 @@
       <v-col cols="1"></v-col>
     </v-row>
   </div>
-  <div style="position: relative">
+  <div style="position: relative; pointer-events: none">
     <v-row style="width: 100%; position: absolute; top: -8vw; z-index: 1000">
       <v-col align="center">
         <v-img width="50%" :src="profilePic" />
       </v-col>
-      <v-col cols="6"></v-col>
-      <v-col cols="1"></v-col>
+      <v-col cols="6" style="pointer-events: none"></v-col>
+      <v-col cols="1" style="pointer-events: none"></v-col>
     </v-row>
   </div>
   <div style="position: relative" class="mb-5">
@@ -122,30 +122,10 @@
     </v-expansion-panel>
     <v-expansion-panel>
       <v-expansion-panel-title>
-        <v-icon icon="mdi-file-account" size="large" />
-        <div class="text-h6 text-md-h4 text-center">My resume</div>
-        <v-spacer></v-spacer>
-        <div class="text-subtitle" v-if="panel?.includes(1)">Close</div>
-        <div class="text-subtitle" v-else>Expand</div>
-      </v-expansion-panel-title>
-      <v-expansion-panel-text>
-        <v-btn
-          style="display: block; margin: 1vw auto"
-          size="large"
-          icon="mdi-google-drive"
-          class="text-body-1 text-md-h6 text-center"
-          :href="resumeLink"
-          target="_blank"
-        ></v-btn>
-        <v-img :src="resume" style="width: 50vw; margin: auto" />
-      </v-expansion-panel-text>
-    </v-expansion-panel>
-    <v-expansion-panel>
-      <v-expansion-panel-title>
         <v-icon icon="mdi-book-open-page-variant" size="large" />
         <div class="text-h6 text-md-h4 text-center">Portfolio Preview</div>
         <v-spacer></v-spacer>
-        <div class="text-subtitle" v-if="panel?.includes(2)">Close</div>
+        <div class="text-subtitle" v-if="panel?.includes(1)">Close</div>
         <div class="text-subtitle" v-else>Expand</div>
       </v-expansion-panel-title>
       <v-expansion-panel-text>
@@ -163,6 +143,26 @@
           </v-col>
           <v-col cols="1" class="hidden-md-and-down"></v-col>
         </v-row>
+      </v-expansion-panel-text>
+    </v-expansion-panel>
+    <v-expansion-panel>
+      <v-expansion-panel-title>
+        <v-icon icon="mdi-file-account" size="large" />
+        <div class="text-h6 text-md-h4 text-center">My resume</div>
+        <v-spacer></v-spacer>
+        <div class="text-subtitle" v-if="panel?.includes(2)">Close</div>
+        <div class="text-subtitle" v-else>Expand</div>
+      </v-expansion-panel-title>
+      <v-expansion-panel-text>
+        <v-btn
+          style="display: block; margin: 1vw auto"
+          size="large"
+          icon="mdi-google-drive"
+          class="text-body-1 text-md-h6 text-center"
+          :href="resumeLink"
+          target="_blank"
+        ></v-btn>
+        <v-img :src="resume" style="width: 50vw; margin: auto" />
       </v-expansion-panel-text>
     </v-expansion-panel>
   </v-expansion-panels>

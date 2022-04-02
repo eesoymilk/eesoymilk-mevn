@@ -5,9 +5,9 @@
     <div class="text-subtitle" v-text="projectDetails.subtitle"></div>
     <v-divider class="my-5"></v-divider>
     <!-- Introduction -->
+    <div class="text-h4"><v-icon icon="mdi-flare" />Introduction</div>
     <v-row align="center">
       <v-col sm="12" md="6" align="left">
-        <div class="text-h4"><v-icon icon="mdi-flare" />Introduction</div>
         <div class="text-body-1" v-text="projectDetails.introduction"></div>
       </v-col>
       <v-col sm="12" md="6" align="center" class="pa-10">
